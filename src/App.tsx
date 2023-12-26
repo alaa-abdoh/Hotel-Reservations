@@ -4,22 +4,31 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import UserIndex from './components/UserIndex';
 import AdminIndex from './components/AdminIndex';
 import { useEffect } from 'react';
+import AuthRequireUser from './components/AuthRequireUser';
+import AuthRequireAdmin from './components/AuthRequireAdmin';
 
 function App() {
   const navigate = useNavigate();
+  // localStorage.clear()
   useEffect(()=>{
     if(localStorage.getItem("authToken"))
       if(localStorage.getItem("userType") === "User")
-        navigate("/home")
-      else if(localStorage.getItem("userType") === "User")
-        navigate("/Adminhome")
+        navigate("/home", {replace: true})
+      else if(localStorage.getItem("userType") === "Admin")
+        navigate("/Adminhome", {replace: true})
   },[])
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Login/>}/>
-        <Route path='/home' element={<UserIndex/>}/>
-        <Route path='/Adminhome' element={<AdminIndex/>}/>
+
+        <Route element={<AuthRequireUser/>}>
+          <Route path='/home' element={<UserIndex/>}/>
+        </Route>
+        
+        <Route element={<AuthRequireAdmin/>}>
+          <Route path='/Adminhome' element={<AdminIndex/>}/>
+        </Route>
       </Routes>
     </div>
   );
