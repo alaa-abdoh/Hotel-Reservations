@@ -147,8 +147,53 @@ a{
   font-size: 15px;
   line-height: 1.4;
 }
-
-
+header{
+  background-color: var(--main-color);
+}
+header .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+header .container a{
+  color: white;
+  padding: 10px;
+  position: relative;
+  transition: all 0.3s linear;
+}
+header .container a:hover{
+  background-color: var(--main-color-alt);
+}
+header .container > a{
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+header .container .listIcon{
+  display: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+@media (max-width:767px){
+  header .container .listIcon{
+    display: block;
+  }
+  header .container nav{
+    position: absolute;
+    left: 50%;
+    top: -1000%;
+    transform: translate(-50%, 0);
+    background-color:var(--main-color);
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: top 0.3s linear;    
+  }
+}
 
 @keyframes loaderMotion {
   0%{
