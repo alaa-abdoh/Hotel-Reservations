@@ -21,9 +21,9 @@ function Login(){
             setIsLoading(false);
             setIsNotRegistered(false)
             if (data.userType === "User")
-                navigate("/home")
+                navigate("/home", { replace: true }); // replace doesn't work and still back to login from home
             if(data.userType === "Admin")
-                navigate("/Adminhome")
+                navigate("/Adminhome", { replace: true });
             localStorage.setItem("authToken", data.authentication)
             localStorage.setItem("userType", data.userType)
        

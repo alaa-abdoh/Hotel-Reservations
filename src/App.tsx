@@ -10,7 +10,6 @@ import Header from './components/Header';
 
 function App() {
   const navigate = useNavigate();
-  // localStorage.clear()
   useEffect(()=>{
     if(localStorage.getItem("authToken"))
       if(localStorage.getItem("userType") === "User")

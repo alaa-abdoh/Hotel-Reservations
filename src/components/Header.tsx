@@ -5,6 +5,11 @@ import { faListUl } from '@fortawesome/free-solid-svg-icons';
 
 function Header(){
     const [isMenuCollapse, setIsMenuCollapse] = useState<Boolean>(true);
+    function handleLogOut(){
+        localStorage.removeItem("authToken")
+        localStorage.removeItem("userType")
+        window.history.replaceState(null, '', '/');
+    }
 
     return (
         <header>
@@ -16,7 +21,7 @@ function Header(){
                     <a href="#">Recently Visited</a>
                     <a href="#">Trending </a>
                 </nav>
-                <Link to='/' onClick={()=>console.log("hhhh")}>logout</Link>
+                <Link to='/' onClick={handleLogOut}>logout</Link>
             </div>
         </header>
     )
