@@ -14,7 +14,7 @@ function Header(){
     return (
         <header>
             <div className="container">
-                <Link to='./UserIndex'>TravelNest</Link>
+                <Link to='./'>TravelNest</Link>
                 <FontAwesomeIcon icon={faListUl} className="listIcon" onClick={()=>setIsMenuCollapse(!isMenuCollapse)}/>
                 <nav style={{top: isMenuCollapse ? "-1000%" : "100%"}}>
                     <a href="#">Featured Deals</a>

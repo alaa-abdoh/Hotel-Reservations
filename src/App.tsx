@@ -1,12 +1,12 @@
 import './App.css';
 import Login from './components/Login';
 import { Outlet, Route, Routes, useNavigate } from 'react-router-dom';
-import UserIndex from './components/UserIndex';
+import UserIndex from './components/User/UserIndex';
 import AdminIndex from './components/AdminIndex';
 import { useEffect } from 'react';
-import AuthRequireUser from './components/AuthRequireUser';
+import AuthRequireUser from './components/User/AuthRequireUser';
 import AuthRequireAdmin from './components/AuthRequireAdmin';
-import Header from './components/Header';
+import Header from './components/User/Header';
 
 function App() {
   const navigate = useNavigate();

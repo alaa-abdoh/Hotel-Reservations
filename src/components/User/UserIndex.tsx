@@ -1,6 +1,8 @@
+import Intro from "./Intro";
+
 function UserIndex(){
     return(
-        <div>This is User Page</div>
+       <Intro/>
     )
 }
 export default UserIndex;

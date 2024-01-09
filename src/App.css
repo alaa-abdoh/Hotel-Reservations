@@ -194,7 +194,27 @@ header .container .listIcon{
     transition: top 0.3s linear;    
   }
 }
-
+.intro{
+  background-image: url("./photos/hotel.jpg");
+  background-size: cover;
+  background-position: bottom;
+  height: calc(100vh - 53px);
+  display: flex;
+  align-items: center;
+}
+.intro .container{
+  text-align: center;
+  color: white;
+}
+.intro .container h1{
+  max-width: 300px;
+  margin: 0 auto 15px;
+  line-height: 1.1;
+}
+.intro .container p{
+  font-size: 18px;
+  font-weight: bold;
+}
 @keyframes loaderMotion {
   0%{
     transform:translate(-50%, -50%) rotate(0deg);
