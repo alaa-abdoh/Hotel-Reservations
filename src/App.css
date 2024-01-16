@@ -215,6 +215,46 @@ header .container .listIcon{
   font-size: 18px;
   font-weight: bold;
 }
+.searchBar{
+  transform: translate(0,-50%);
+}
+.searchBar .container{
+  padding: 0;
+}
+.searchBar .container form{
+  background-color: var(--main-color);
+  display: flex;
+  padding: 4px;
+  border-radius: 8px;
+}
+.searchBar .container form > div{
+  flex: 1;
+  background-color: white;
+  padding: 10px;
+  margin-right: 4px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+.searchBar .container form div .persons span{
+  margin-right: 5px;
+}
+.searchBar .container form div .icon{
+  margin:0 10px;
+  color: var(--main-color-alt);
+  font-size: 18px;
+}
+.searchBar .container form > input{
+  padding: 10px ;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  transition: all 0.2s linear;
+}
+.searchBar .container form > input:hover{
+  box-shadow: 0px 0px 2px 2px #333 inset;
+}
 @keyframes loaderMotion {
   0%{
     transform:translate(-50%, -50%) rotate(0deg);

@@ -1,8 +1,12 @@
 import Intro from "./Intro";
+import SearchBar from "./SearchBar";
 
 function UserIndex(){
     return(
-       <Intro/>
+       <>
+        <Intro/>
+        <SearchBar/>
+       </>
     )
 }
 export default UserIndex;
