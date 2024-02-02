@@ -3,7 +3,8 @@
 export type Reserve= {
     adults: number, 
     children: number, 
-    rooms: number
+    rooms: number,
+    [key: string]: number; // this line added to make TS allow dynamic access to object property 
 }
 export type ReserveBoxProps= {
     reserve: Reserve,
@@ -11,5 +12,6 @@ export type ReserveBoxProps= {
 }
 export type ReserveBoxContentProps= {
     peopleClassification: string,
-    amount: number
+    amount: number,
+    updateReserveAmount(classification: string, operation: "+" | "-"):void;
 }

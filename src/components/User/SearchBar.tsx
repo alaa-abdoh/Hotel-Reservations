@@ -25,7 +25,7 @@ function SearchBar(){
                         <FontAwesomeIcon icon={faPerson} className='icon'/>
                         <div className='persons' onClick={()=>{setShowReserveBox(!showReserveBox)}}>             
                             <span>{reserve.adults} {reserve.adults <=1 ? "adult ." : "adults ."}</span> 
-                            <span>{reserve.children} {reserve.children <=1 ? "children ." : "children ."}</span> 
+                            <span>{reserve.children} {reserve.children <=1 ? "child ." : "children ."}</span> 
                             <span>{reserve.rooms} {reserve.rooms <=1 ? "room" : "rooms"}</span>                         
                         </div>
                         {showReserveBox  && <ReserveBox reserve= {reserve} setReserve={setReserve} />}
