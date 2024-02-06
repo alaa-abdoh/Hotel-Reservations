@@ -3,9 +3,13 @@ import { faLocationDot, faCalendarDays, faPerson } from '@fortawesome/free-solid
 import { useState } from 'react';
 import ReserveBox from './ReserveBox';
 import { Reserve } from '../../Types/app';
+import Calendars from './Calendars';
 
 function SearchBar(){
     const [place, setPlace] = useState<String>("");
+    const [startDate, setStartDate] = useState<null | Date>(null);
+    const [endDate, setEndDate] = useState<null | Date>(null);
+    const [showPickerDate, setShowPickerDate]= useState<boolean>(false);
     const [reserve, setReserve] = useState<Reserve>({adults:2, children:0, rooms: 1})
     const [showReserveBox, setShowReserveBox] = useState<boolean>(false);
 
@@ -15,13 +19,18 @@ function SearchBar(){
                 <form>
                     <div>
                         <FontAwesomeIcon icon={faLocationDot} className='icon'/>
-                        <input onChange={(e)=>{setPlace(e.target.value)}} type="text" placeholder='Search for hotels, cities...' />
+                        <input className='place' onChange={(e)=>{setPlace(e.target.value)}} type="text" placeholder='Search for hotels, cities...' />
                     </div>
                     <div>
                         <FontAwesomeIcon icon={faCalendarDays} className='icon'/>
-                        <input type="text" placeholder='Where are you going' />
+                        <button onClick={(e)=>{e.preventDefault() ;setShowPickerDate(!showPickerDate)}}>
+                            <span>start</span>
+                            <span>-</span>
+                            <span>end</span>
+                        </button>
+                        {showPickerDate && <Calendars startDate={startDate} endDate={endDate} setStartDate={setStartDate} setEndDate={setEndDate} />}
                     </div>
-                    <div style={{cursor: "pointer", position: "relative"}}>
+                    <div>
                         <FontAwesomeIcon icon={faPerson} className='icon'/>
                         <div className='persons' onClick={()=>{setShowReserveBox(!showReserveBox)}}>             
                             <span>{reserve.adults} {reserve.adults <=1 ? "adult ." : "adults ."}</span> 

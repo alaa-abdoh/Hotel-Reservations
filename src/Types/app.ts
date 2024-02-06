@@ -15,3 +15,9 @@ export type ReserveBoxContentProps= {
     amount: number,
     updateReserveAmount(classification: string, operation: "+" | "-"):void;
 }
+export type CalendarsProps= {
+    startDate: null | Date,
+    endDate: null | Date,
+    setStartDate: React.Dispatch<React.SetStateAction<null | Date>>,
+    setEndDate: React.Dispatch<React.SetStateAction<null | Date>>,
+}
