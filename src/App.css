@@ -227,6 +227,11 @@ header .container .listIcon{
   padding: 4px;
   border-radius: 8px;
 }
+@media (max-width:991px){
+  .searchBar .container form{
+    flex-direction: column;
+  }
+}
 .searchBar .container form > div{
   flex: 1;
   background-color: white;
@@ -237,6 +242,17 @@ header .container .listIcon{
   align-items: center;
   cursor: pointer;
   position: relative;
+}
+@media (max-width:991px){
+  .searchBar .container form > div{
+    margin: 3px;
+  }
+}
+.searchBar .container form > div:first-of-type{
+  cursor:auto;
+}
+.searchBar .container form div .persons{
+  width: 100%;
 }
 .searchBar .container form div .persons span{
   margin-right: 5px;
@@ -268,10 +284,16 @@ header .container .listIcon{
 .searchBar .container form > input:hover{
   box-shadow: 0px 0px 2px 2px #333 inset;
 }
+@media (max-width:991px){
+  .searchBar .container form > input{
+    margin: 3px;
+  }
+}
 .searchBar .container form input.place{
   border: none;
   border-bottom: 1px solid var(--main-color);
   padding: 3px;
+  width: 70%;
 }
 .searchBar .container form input.place:focus{
   outline: none;
