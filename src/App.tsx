@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import AuthRequireUser from './components/User/AuthRequireUser';
 import AuthRequireAdmin from './components/Admin/AuthRequireAdmin';
 import Header from './components/User/Header';
+import SearchResult from './components/User/SearchResult';
 
 function App() {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ function App() {
         <Route element={<AuthRequireUser/>}>
           <Route path='/home' element={<><Header/><Outlet/></>}>
             <Route path='' element={<UserIndex/>}/>
-            <Route path='about' element={<UserIndex/>}/>
+            <Route path='hotelSearch' element={<SearchResult/>}/>
             <Route path='features' element={<UserIndex/>}/>
           </Route>
           

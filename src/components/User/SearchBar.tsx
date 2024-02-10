@@ -4,6 +4,7 @@ import { useState } from 'react';
 import ReserveBox from './ReserveBox';
 import { Reserve } from '../../Types/app';
 import Calendars from './Calendars';
+import { useNavigate } from 'react-router-dom';
 
 function SearchBar(){
     const [place, setPlace] = useState<String>("");
@@ -12,6 +13,11 @@ function SearchBar(){
     const [showPickerDate, setShowPickerDate]= useState<boolean>(false);
     const [reserve, setReserve] = useState<Reserve>({adults:2, children:0, rooms: 1})
     const [showReserveBox, setShowReserveBox] = useState<boolean>(false);
+    const navigateTo = useNavigate();
+
+    function handleSearch(){
+        navigateTo('hotelSearch', { state: { place, startDate, endDate, reserve } })
+    }
 
     return(
         <div className="searchBar">
@@ -39,7 +45,7 @@ function SearchBar(){
                         </div>
                         {showReserveBox  && <ReserveBox reserve= {reserve} setReserve={setReserve} />}
                     </div>
-                    <input type="submit" value="Search" />
+                    <button type="button" onClick={handleSearch}>Search</button>
                 </form>
             </div>
         </div>
