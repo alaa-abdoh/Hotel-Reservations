@@ -425,6 +425,7 @@ header .container .listIcon{
 }
 .deal .info .orginalPrice{
   text-decoration: line-through;
+  text-decoration-color: black;
   left: 15px;
 }
 .deal .info .finalPrice{
