@@ -28,6 +28,27 @@ a{
   padding-left:15px ;
   padding-right:15px ;
 }
+.heading{
+  margin: 40px auto;
+  text-align: center;
+  width: fit-content;
+  position: relative;
+}
+.heading::after, .heading::before{
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  background-color: var(--main-color);
+}
+.heading::before{
+  left: 0;
+  bottom: 0;
+}
+.heading::after{
+  right: 0;
+  top: 0;
+}
 @media (min-width:768px) {
   .container{
       width:750px;
@@ -355,9 +376,85 @@ header .container .listIcon{
   cursor: pointer;
   color: var(--main-color);
 }
+.featuredDeals{
+  padding-bottom: 50px;
+}
+.featuredDeals .container h2{
+  margin-bottom: 30px;
+}
+.featuredDeals .container .deals{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 40px;
+}
+.deal{
+  box-shadow: 0 0 15px rgb(0 0 0 / 22%);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px ;
+  position: relative;
+}
+.deal img{
+  width: 100%;
+  height: 220px;
+  border-top-right-radius: 15px ;
+  border-top-left-radius: 15px;
+}
+.deal .info{
+  padding:0 15px 15px;
+}
+.deal .info h3{
+  text-align: center;
+}
+.deal .info p:first-of-type{
+  color: #bfbfbf;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+.deal .info p:last-of-type{
+  font-size:14px ;
+  min-height: 160px;
+}
+@media(max-width:991px){
+  .deal .info p:last-of-type{
+    min-height: 130px;
+  }
 
-
-
+}
+.deal .info .star{
+  font-size: 20px;
+}
+.deal .info .orginalPrice{
+  text-decoration: line-through;
+  left: 15px;
+}
+.deal .info .finalPrice{
+  right: 15px;
+}
+.deal .info .orginalPrice,
+.deal .info .finalPrice{
+  position: absolute;
+  background-color: var(--main-color);
+  color: white;
+  writing-mode: vertical-lr;
+  top: 0;
+  height: 70px;
+  padding-top: 5px;
+  font-weight: bold;
+}
+.deal .info .orginalPrice::after,
+.deal .info .finalPrice::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border: 15px solid;
+  border-color: transparent transparent white transparent;
+}
+.deal .info .rating{
+  text-align: center;
+}
 
 @keyframes loaderMotion {
   0%{

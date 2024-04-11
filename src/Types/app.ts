@@ -21,3 +21,22 @@ export type CalendarsProps= {
     setStartDate: React.Dispatch<React.SetStateAction<null | Date>>,
     setEndDate: React.Dispatch<React.SetStateAction<null | Date>>,
 }
+export type hotelDeal={
+    cityName: String,
+    description: String,
+    discount: number,
+    finalPrice: number,
+    hotelId: number,
+    hotelName: String,
+    hotelStarRating: number,
+    originalRoomPrice: number,
+    roomPhotoUrl: string,
+    title: String,
+
+}
+export type DealProps= {
+    deal:hotelDeal;
+}
+export type StarRatingProps={
+    stars: number
+}
