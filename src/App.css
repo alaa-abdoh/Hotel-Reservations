@@ -456,6 +456,9 @@ header .container .listIcon{
 .deal .info .rating{
   text-align: center;
 }
+.RecentlyVisited{
+  padding: 0 0 100px;
+}
 .RecentlyVisited .hotels{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
