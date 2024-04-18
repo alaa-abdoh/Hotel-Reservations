@@ -1,4 +1,5 @@
 // this folder has all types
+import { jwtDecode, JwtPayload  } from "jwt-decode";
 
 export type Reserve= {
     adults: number, 
@@ -39,4 +40,23 @@ export type DealProps= {
 }
 export type StarRatingProps={
     stars: number
+}
+export interface MyJwtPayload extends JwtPayload {
+    user_id: string; 
+    userType: string;
+    family_name: string;
+    given_name: string;
+}
+export type visitedHotel={
+    hotelId:number,
+    cityName: string,
+    hotelName: string,
+    priceLowerBound: number,
+    priceUpperBound: number,
+    starRating: number,
+    thumbnailUrl: string,
+    visitDate: string
+}
+export type VisitedHotelProps= {
+    hotel: visitedHotel
 }

@@ -456,6 +456,56 @@ header .container .listIcon{
 .deal .info .rating{
   text-align: center;
 }
+.RecentlyVisited .hotels{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+  gap: 25px;
+}
+.RecentlyVisited .hotels .hotel{
+  position: relative;
+  overflow: hidden;
+}
+.RecentlyVisited .hotels .hotel .img img{
+  width: 100%;
+  height: 400px;
+}
+.RecentlyVisited .hotels .hotel .info{
+  background: var(--main-color);
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  padding: 5px 15px;
+  height: 55%;
+  color: white;
+  transition: all 0.5s linear;
+}
+.RecentlyVisited .hotels .hotel:hover .info{
+  bottom: 0;
+}
+.RecentlyVisited .hotels .hotel .info h3{
+  text-align: center;
+}
+.RecentlyVisited .hotels .hotel .info div{
+  margin-bottom: 3px;
+}
+.RecentlyVisited .hotels .hotel .info .icon{
+  margin-right:5px;
+}
+.RecentlyVisited .hotels .hotel .info span:first-of-type{
+  font-weight: bold;
+  font-size: 17px;
+}
+.RecentlyVisited .hotels .hotel .info >div span:last-of-type{
+  margin-left: 7px;
+}
+.RecentlyVisited .hotels .hotel .info .rating{
+  display: inline;
+  margin-left: 7px;
+}
+
+
+
 
 @keyframes loaderMotion {
   0%{

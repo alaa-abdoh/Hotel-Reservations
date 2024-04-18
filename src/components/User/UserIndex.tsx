@@ -1,5 +1,6 @@
 import FeaturesDeals from "./FeaturesDeals";
 import Intro from "./Intro";
+import RecentlyVisted from "./RecentlyVisted";
 import SearchBar from "./SearchBar";
 
 function UserIndex(){
@@ -8,6 +9,7 @@ function UserIndex(){
         <Intro/>
         <SearchBar/>
         <FeaturesDeals/>
+        <RecentlyVisted/>
        </>
     )
 }
