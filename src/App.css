@@ -29,7 +29,7 @@ a{
   padding-right:15px ;
 }
 .heading{
-  margin: 40px auto;
+  margin: 0px auto 50px;
   text-align: center;
   width: fit-content;
   position: relative;
@@ -377,7 +377,7 @@ header .container .listIcon{
   color: var(--main-color);
 }
 .featuredDeals{
-  padding-bottom: 50px;
+  padding: 50px 0;
 }
 .featuredDeals .container h2{
   margin-bottom: 30px;
@@ -457,7 +457,7 @@ header .container .listIcon{
   text-align: center;
 }
 .RecentlyVisited{
-  padding: 0 0 100px;
+  padding: 50px 0;
 }
 .RecentlyVisited .hotels{
   display: grid;
