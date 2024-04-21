@@ -20,7 +20,6 @@ function RecentlyVisited() {
                         headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
                     });
                     setVisited(response.data);
-                    console.log(response.data)
                 }
             } catch (error:any) {
                 if(error.response.status === 401){

@@ -27,7 +27,7 @@ function VisitedHotel(props: VisitedHotelProps){
                 </div>
                 <div className="date">
                     <span> <FontAwesomeIcon icon={faCalendarDays} className='icon' />Date :</span>
-                    <span>{props.hotel.visitDate}</span>
+                    <span>{props.hotel.visitDate.slice(0, props.hotel.visitDate.indexOf("T"))}</span>
                 </div>
                 <span>Rating :<StarRating stars={props.hotel.starRating} /></span>
             </div>
