@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import TrendHotel from "./TrendHotel";
+import { trendHotel } from "../../Types/app";
 
 function TrendingDestinations() {
     const [trends, setTrends] = useState([])
@@ -31,7 +33,9 @@ function TrendingDestinations() {
             <div className="container">
                 <h2 className="heading">Trending Destinations</h2>
                 <div className="hotels">
-                    
+                    {
+                        trends.map((hotel:trendHotel) => <TrendHotel hotelInfo={hotel} key={hotel.cityId} /> )
+                    }
                 </div>
             </div>
         </div>

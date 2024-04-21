@@ -60,3 +60,13 @@ export type visitedHotel={
 export type VisitedHotelProps= {
     hotel: visitedHotel
 }
+export type trendHotel={
+    cityId: number,
+    cityName: string,
+    countryName: string,
+    description: string,
+    thumbnailUrl: string
+}
+export type trendHotelProbs= {
+    hotelInfo:trendHotel
+}
