@@ -15,7 +15,6 @@ function TrendingDestinations() {
                     headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
                 });
                 setTrends(response.data);
-                console.log(response.data)/*Delllllllllllllllllllllllllllllllllllll */
             } catch (error: any) {
                 if (error.response.status === 401) {
                     navigate("/");

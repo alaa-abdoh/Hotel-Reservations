@@ -33,6 +33,7 @@ a{
   text-align: center;
   width: fit-content;
   position: relative;
+  z-index: -1; /*To make the calender in the front*/
 }
 .heading::after, .heading::before{
   content: "";
@@ -378,6 +379,8 @@ header .container .listIcon{
 }
 .featuredDeals{
   padding: 50px 0;
+  position: relative;
+  z-index: -1; /*To make the calender in the front*/
 }
 .featuredDeals .container h2{
   margin-bottom: 30px;
