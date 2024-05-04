@@ -70,3 +70,6 @@ export type trendHotel={
 export type trendHotelProbs= {
     hotelInfo:trendHotel
 }
+export type searchFailedProps={
+    place: string
+}

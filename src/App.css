@@ -560,6 +560,33 @@ header .container .listIcon{
 .trendingDestinations .hotels .hotel:hover h3{
   left: 20px;
 }
+.searchResult{
+  padding: 50px 0;
+}
+.searchResult .noHotelsFound{
+  text-align: center;
+}
+.searchResult .noHotelsFound p{
+  font-size: 15px;
+  margin: 0 0 10px 0;
+}
+.searchResult .noHotelsFound span{
+  display: block;
+  font-size: 13.5px;
+  color: #bfbfbf;
+}
+.searchResult .noHotelsFound a{
+  display: inline-block;
+  margin: 5px 0 10px 0;
+  background-color: var(--main-color);
+  padding: 7px;
+  border-radius: 15px;
+  color: white;
+  transition: all 0.3s linear;
+}
+.searchResult .noHotelsFound a:hover{
+  background-color: var(--main-color-alt);
+}
 
 @keyframes loaderMotion {
   0%{
