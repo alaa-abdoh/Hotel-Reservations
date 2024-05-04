@@ -216,6 +216,26 @@ header .container .listIcon{
     transition: top 0.3s linear;    
   }
 }
+footer{
+  background-color: var(--main-color);
+  padding: 25px 0;
+}
+footer .container{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+footer .container a{
+  margin-right: 10px;
+  color: white;
+  transition: all 0.3s linear;
+}
+footer .container a:hover{
+  opacity: 0.7;
+}
 .intro{
   background-image: url("./photos/hotel.jpg");
   background-size: cover;

@@ -8,6 +8,7 @@ import AuthRequireUser from './components/User/AuthRequireUser';
 import AuthRequireAdmin from './components/Admin/AuthRequireAdmin';
 import Header from './components/User/Header';
 import SearchResult from './components/User/SearchResult';
+import Footer from './components/User/Footer';
 
 function App() {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ function App() {
         <Route path='/' element={<Login/>}/>
 
         <Route element={<AuthRequireUser/>}>
-          <Route path='/home' element={<><Header/><Outlet/></>}>
+          <Route path='/home' element={<><Header/><Outlet/><Footer/></>}>
             <Route path='' element={<UserIndex/>}/>
             <Route path='hotelSearch' element={<SearchResult/>}/>
             <Route path='features' element={<UserIndex/>}/>
