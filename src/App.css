@@ -228,6 +228,17 @@ footer .container{
   font-size: 15px;
   font-weight: bold;
 }
+@media (max-width:676px){
+  footer .container{
+    flex-direction: column;
+  }
+  footer .container .social{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 15px;
+  }
+}
 footer .container a{
   margin-right: 10px;
   color: white;
