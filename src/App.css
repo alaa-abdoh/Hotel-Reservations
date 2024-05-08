@@ -97,7 +97,7 @@ a{
   backdrop-filter: blur(20px);
   position: relative; 
 }
-.loginPage .content .loader{
+.loader{
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -487,8 +487,11 @@ footer .container a:hover{
   border: 15px solid;
   border-color: transparent transparent white transparent;
 }
-.deal .info .rating{
+.rating{
   text-align: center;
+}
+.rating span{
+  font-size: 25px;
 }
 .RecentlyVisited{
   padding: 50px 0;
@@ -618,6 +621,58 @@ footer .container a:hover{
 .searchResult .noHotelsFound a:hover{
   background-color: var(--main-color-alt);
 }
+.searchResult .content{
+  display: flex;
+}
+.searchResult .content .filterBar{
+  flex-basis: 25%;
+}
+.searchResult .content .searchedHotels{
+  flex: 1;
+}
+.searchResult .content .searchedHotels .hotel{
+  border: 1px solid #eee;
+  padding: 10px;
+  border-radius: 15px;
+  display: flex;
+  margin-bottom: 10px;
+}
+.searchResult .content .searchedHotels .hotel img{
+  width: 250px;
+  height: 250px;
+  border-radius: 15px;
+}
+.searchResult .content .searchedHotels .hotel .info{
+  margin-left: 25px;
+  flex: 1;
+}
+.searchResult .content .searchedHotels .hotel .info h3{
+  text-align: center;
+  font-size: 24px;
+  color: var(--main-color);
+}
+.searchResult .content .searchedHotels .hotel .info > p,
+.searchResult .content .searchedHotels .hotel .info div ul li{
+  font-size: 15px;
+  color: #00000099;
+}
+.searchResult .content .searchedHotels .hotel .info > p{
+  margin-bottom: 10px;
+}
+.searchResult .content .searchedHotels .hotel .info > span
+,.searchResult .content .searchedHotels .hotel .info div p{
+  font-weight: bold;
+  font-size: 16px;
+  color: black;
+}
+.searchResult .content .searchedHotels .hotel .info div ul{
+  list-style-type: disc;
+  margin: 0 0 15px 40px;
+}
+.searchResult .content .searchedHotels .hotel .info div ul li span{
+  font-weight: bold;
+}
+
 
 @keyframes loaderMotion {
   0%{

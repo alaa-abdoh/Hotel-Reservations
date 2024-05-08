@@ -73,3 +73,36 @@ export type trendHotelProbs= {
 export type searchFailedProps={
     place: string
 }
+export type searchedHotel={
+    hotelId: number,
+    hotelName: string,
+    starRating: number,
+    latitude: number,
+    longitude: number,
+    roomPrice: number,
+    roomType: string,
+    cityName: string,
+    roomPhotoUrl: string,
+    discount: number,
+    amenities: [
+      {
+        id: number,
+        name: string,
+        description: string
+      },
+      {
+        id: number,
+        name: string,
+        description: string
+      }
+    ]
+}
+export type searchSuccessProps={
+    hotels:searchedHotel[];
+}
+export type searchHotelsProps={
+    hotels:searchedHotel[];
+}
+export type searchHotelProps={
+    hotel:searchedHotel;
+}
