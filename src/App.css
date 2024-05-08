@@ -659,7 +659,7 @@ footer .container a:hover{
 .searchResult .content .searchedHotels .hotel .info > p{
   margin-bottom: 10px;
 }
-.searchResult .content .searchedHotels .hotel .info > span
+.searchResult .content .searchedHotels .hotel .info span:not(.star)
 ,.searchResult .content .searchedHotels .hotel .info div p{
   font-weight: bold;
   font-size: 16px;
