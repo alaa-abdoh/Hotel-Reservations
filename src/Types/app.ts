@@ -128,3 +128,27 @@ export type roomTypeFilterProps={
     selectedRoomType: string,
     setSelectedRoomType: React.Dispatch<React.SetStateAction<string>>;
 }
+export type hotelInfo={
+    hotelName: string;
+    location: string;
+    description: string;
+    latitude: number;
+    longitude: number;
+    amenities: { name: string; description: string; }[];
+    starRating: number;
+    availableRooms: number;
+    imageUrl: string;
+    cityId: number;    
+}
+export type hotelInfo_BasicProps={
+    hotelInfo: hotelInfo;
+}
+export type reviewsProps={
+    hotelId: number
+}
+export type review={
+    reviewId: number,
+    customerName: string,
+    rating: number,
+    description: string
+}
