@@ -630,6 +630,7 @@ footer .container a:hover{
 }
 .searchResult .content{
   display: flex;
+  /* justify-content: center; */
 }
 @media (max-width:767px){
   .searchResult .content{

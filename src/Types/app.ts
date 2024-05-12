@@ -100,7 +100,8 @@ export type searchedHotel={
 export type searchSuccessProps={
     hotels:searchedHotel[],
     setHotels:React.Dispatch<React.SetStateAction<searchedHotel[]>>,
-    originalHotels:searchedHotel[];
+    originalHotels:searchedHotel[],
+    place:string;
 }
 export type searchHotelsProps={
     hotels:searchedHotel[];

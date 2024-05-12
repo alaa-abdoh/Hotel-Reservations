@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import SearchFailed from "./SearchFailed";
 import SearchSuccess from "./SearchSuccess";
 import Loader from "../Loader";
 import { searchedHotel } from "../../Types/app";
@@ -41,12 +40,8 @@ function SearchResult(){
     return isLoading ? <Loader/> : (
         <div className="searchResult">
             <div className="container">
-                <h3 className="heading">{location.state.place}: {hotels.length} properties found</h3>
-                {
-                    hotels.length == 0 ? <SearchFailed place={location.state.place}/>
-                    :
-                    <SearchSuccess hotels={hotels} setHotels={setHotels} originalHotels={originalHotels} />
-                }
+                <h3 className="heading">{location.state.place}: {hotels.length} properties found</h3>        
+                <SearchSuccess hotels={hotels} setHotels={setHotels} originalHotels={originalHotels} place={location.state.place} />
             </div>
          </div>
     )
