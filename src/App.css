@@ -630,10 +630,11 @@ footer .container a:hover{
 }
 .searchResult .content{
   display: flex;
-  justify-content: space-between;
 }
-.searchResult .content .searchedHotels{
-  flex-basis: 70%;
+@media (max-width:767px){
+  .searchResult .content{
+    flex-direction: column;
+  }
 }
 .searchResult .content .searchedHotels .hotel{
   border: 1px solid #eee;
@@ -642,10 +643,20 @@ footer .container a:hover{
   display: flex;
   margin-bottom: 10px;
 }
+@media (max-width:991px){
+  .searchResult .content .searchedHotels .hotel{
+    flex-direction: column;
+  }
+}
 .searchResult .content .searchedHotels .hotel img{
   width: 250px;
   height: 250px;
   border-radius: 15px;
+}
+@media (max-width:991px){
+  .searchResult .content .searchedHotels .hotel img{
+    width: 100%;
+  }
 }
 .searchResult .content .searchedHotels .hotel .info{
   margin-left: 25px;
@@ -682,17 +693,22 @@ footer .container a:hover{
   border: 1px solid #eee;
   border-radius: 15px;
   padding: 5px 10px;
-  flex-basis: 25%;
+  width: 240px;
+  margin-right: 40px;
+}
+@media (max-width:767px){
+  .searchResult .content .filterBar{
+    margin: 0 auto 40px;
+    max-width: 400px;
+  }
 }
 .filterBar h3,
 .priceFilter,
-.roomFilter,
 .starFilter{
   position: relative;
 }
 .filterBar h3::before,
 .priceFilter::before,
-.roomFilter::before,
 .starFilter::before{
   content: "";
   position: absolute;
@@ -717,6 +733,14 @@ footer .container a:hover{
 }
 .priceFilter > div {
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width:767px){
+  .priceFilter > div {
+   width: 60%;
+  }
 }
 .starFilter div{
   text-align: center;

@@ -5,7 +5,7 @@ function PriceFilter(props: priceFilterProps) {
     return (
         <div className="priceFilter">
             <h4>Price</h4>
-            <div style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
+            <div>
                 <label htmlFor="min" style={{fontWeight:"bold"}}>Min: </label>
                 <span>${props.minPrice}</span>
                 <input
@@ -17,7 +17,7 @@ function PriceFilter(props: priceFilterProps) {
                     onChange={(e: any) => props.setMinPrice(e.target.value)}
                 />
             </div>    
-            <div style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
+            <div>
                 <label htmlFor="max" style={{fontWeight:"bold"}}>Max: </label>
                 <span>${props.maxPrice}</span>
                 <input
