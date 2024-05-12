@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { searchHotelProps } from "../../Types/app";
 import StarRating from "./StarRating";
 
@@ -20,7 +21,10 @@ function SearchHotel(props: searchHotelProps){
                         }
                     </ul>
                 </div>
+                <p style={{marginBottom:0}}><span>Price:</span> ${props.hotel.roomPrice}</p>
+                <p style={{marginBottom:0}}><span>Room Type:</span> {props.hotel.roomType}</p>
                 <StarRating stars={props.hotel.starRating}/>
+                <Link to={`/home/hotelSearch/hotels/${props.hotel.hotelId}`}>Booking it</Link>
             </div>
         </div>
     )

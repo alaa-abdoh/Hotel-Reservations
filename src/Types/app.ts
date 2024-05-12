@@ -98,11 +98,32 @@ export type searchedHotel={
     ]
 }
 export type searchSuccessProps={
-    hotels:searchedHotel[];
+    hotels:searchedHotel[],
+    setHotels:React.Dispatch<React.SetStateAction<searchedHotel[]>>,
+    originalHotels:searchedHotel[];
 }
 export type searchHotelsProps={
     hotels:searchedHotel[];
 }
 export type searchHotelProps={
     hotel:searchedHotel;
+}
+export type filterBarProps={
+    hotels:searchedHotel[];
+    setHotels:React.Dispatch<React.SetStateAction<searchedHotel[]>>,
+    originalHotels:searchedHotel[];
+}
+export type priceFilterProps={
+    minPrice: number,
+    setMinPrice: React.Dispatch<React.SetStateAction<number>>,
+    maxPrice: number,
+    setMaxPrice: React.Dispatch<React.SetStateAction<number>>;
+}
+export type starFilterProps={
+    selectedStars: number,
+    setSelectedStars:  React.Dispatch<React.SetStateAction<number>>;
+}
+export type roomTypeFilterProps={
+    selectedRoomType: string,
+    setSelectedRoomType: React.Dispatch<React.SetStateAction<string>>;
 }

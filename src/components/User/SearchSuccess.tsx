@@ -5,7 +5,7 @@ import { searchSuccessProps } from "../../Types/app";
 function SearchSuccess(props: searchSuccessProps){
     return(
         <div className="content">
-            <FilterBar/>
+            <FilterBar hotels={props.hotels} setHotels={props.setHotels} originalHotels={props.originalHotels}/>
             <SearchHotels hotels={props.hotels} />
         </div>
     )

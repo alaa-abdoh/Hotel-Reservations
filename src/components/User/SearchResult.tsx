@@ -4,9 +4,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import SearchFailed from "./SearchFailed";
 import SearchSuccess from "./SearchSuccess";
 import Loader from "../Loader";
+import { searchedHotel } from "../../Types/app";
 
 function SearchResult(){
-    const [hotels, setHotels]= useState([]);
+    const [hotels, setHotels]= useState<searchedHotel[]>([]);
+    const [originalHotels, setOriginalHotels] = useState<searchedHotel[]>([]);// To use In filter
     const location = useLocation();
     const navigate= useNavigate();
     const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -22,6 +24,7 @@ function SearchResult(){
                     headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
                 });
                 setHotels(response.data);
+                setOriginalHotels(response.data)
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
@@ -42,7 +45,7 @@ function SearchResult(){
                 {
                     hotels.length == 0 ? <SearchFailed place={location.state.place}/>
                     :
-                    <SearchSuccess hotels={hotels} />
+                    <SearchSuccess hotels={hotels} setHotels={setHotels} originalHotels={originalHotels} />
                 }
             </div>
          </div>
