@@ -5,6 +5,7 @@ import Loader from "../Loader";
 import HotelInfo_Basic from "./HotelInfo_Basic";
 import { hotelInfo } from "../../Types/app";
 import Reviews from "./Reviews";
+import HotelLocation from "./HotelLocation";
 
 function HotelInfo(){
     const {hotelID} =useParams();
@@ -40,6 +41,7 @@ function HotelInfo(){
             <div className="container">
                 {hotelInfo ? <HotelInfo_Basic hotelInfo={hotelInfo} /> : null}
                 <Reviews hotelId={Number(hotelID)}/>
+                {hotelInfo ? <HotelLocation latitude={hotelInfo.latitude} longitude={hotelInfo.longitude} /> : null}
             </div>
         </div>
     );

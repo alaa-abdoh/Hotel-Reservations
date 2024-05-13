@@ -152,3 +152,7 @@ export type review={
     rating: number,
     description: string
 }
+export type hotelLocationProps={
+    latitude: number,
+    longitude: number; 
+}
