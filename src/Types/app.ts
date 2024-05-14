@@ -156,3 +156,40 @@ export type hotelLocationProps={
     latitude: number,
     longitude: number; 
 }
+export type hotelImagesProps={
+    hotelId: number
+}
+export type hotelImg={
+    id:number,
+    url:string
+}
+export type availableRoomsProps={
+    hotelId: number
+}
+export type roomCriteria= {
+    roomId: number,
+    roomNumber: number,
+    roomPhotoUrl: string,
+    roomType: string,
+    capacityOfAdults: number,
+    capacityOfChildren: number,
+    roomAmenities: [
+        {
+        name: string,
+        description: string
+        },
+        {
+        name: string,
+        description: string
+        },
+        {
+        name: string,
+        description: string
+        }
+    ],
+    price: number,
+    availability: boolean
+}
+export type hotelRoomProps={
+    room: roomCriteria
+}

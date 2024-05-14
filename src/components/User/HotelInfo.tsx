@@ -6,6 +6,8 @@ import HotelInfo_Basic from "./HotelInfo_Basic";
 import { hotelInfo } from "../../Types/app";
 import Reviews from "./Reviews";
 import HotelLocation from "./HotelLocation";
+import HotelImages from "./HotelImages";
+import AvailableRooms from "./AvailableRooms";
 
 function HotelInfo(){
     const {hotelID} =useParams();
@@ -42,6 +44,8 @@ function HotelInfo(){
                 {hotelInfo ? <HotelInfo_Basic hotelInfo={hotelInfo} /> : null}
                 <Reviews hotelId={Number(hotelID)}/>
                 {hotelInfo ? <HotelLocation latitude={hotelInfo.latitude} longitude={hotelInfo.longitude} /> : null}
+                <HotelImages hotelId={Number(hotelID)}/>
+                <AvailableRooms hotelId={Number(hotelID)}/>
             </div>
         </div>
     );

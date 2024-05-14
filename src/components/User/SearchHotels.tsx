@@ -5,7 +5,7 @@ function SearchHotels(props: searchHotelsProps){
     return(
         <div className="searchedHotels">
             {
-                props.hotels.map((hotel: searchedHotel)=> <SearchHotel hotel={hotel}/> )
+                props.hotels.map((hotel: searchedHotel)=> <SearchHotel key={hotel.hotelId} hotel={hotel}/> )
             }
         </div>
     )
