@@ -10,6 +10,7 @@ import Header from './components/User/Header';
 import SearchResult from './components/User/SearchResult';
 import Footer from './components/User/Footer';
 import HotelInfo from './components/User/HotelInfo';
+import Cart from './components/User/Cart';
 
 function App() {
   const navigate = useNavigate();
@@ -30,8 +31,8 @@ function App() {
             <Route path='' element={<UserIndex/>}/>
             <Route path='hotelSearch' element={<SearchResult/>}/>
             <Route path='hotelSearch/hotels/:hotelID' element={<HotelInfo/>}/>
+            <Route path='cart' element={<Cart/>}/>
           </Route>
-          
         </Route>
 
         <Route element={<AuthRequireAdmin/>}>

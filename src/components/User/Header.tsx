@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faListUl } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faListUl } from '@fortawesome/free-solid-svg-icons';
 
 function Header(){
     const [isMenuCollapse, setIsMenuCollapse] = useState<Boolean>(true);
@@ -20,6 +20,7 @@ function Header(){
                     <a href="#">Featured Deals</a>
                     <a href="#">Recently Visited</a>
                     <a href="#">Trending </a>
+                    <Link to="/home/cart"><FontAwesomeIcon icon={faCartShopping}/></Link> 
                 </nav>
                 <Link to='/' onClick={handleLogOut}>logout</Link>
             </div>
