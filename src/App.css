@@ -974,6 +974,13 @@ footer .container a:hover{
   border-style: solid;
   border-color: transparent transparent #eee transparent;
 }
+@media (max-width:767px){
+  .availableRooms .content .room .roomInfo p.price::before{
+    bottom: initial;
+    top: -1px;
+    border-color: #eee transparent transparent transparent;
+  }
+}
 .cart{
   padding: 50px 0;
 }
@@ -995,12 +1002,55 @@ footer .container a:hover{
 .cart .emptyCart p:last-of-type{
   margin-bottom: 30px;
 }
-@media (max-width:767px){
-  .availableRooms .content .room .roomInfo p.price::before{
-    bottom: initial;
-    top: -1px;
-    border-color: #eee transparent transparent transparent;
-  }
+.cart .fullCart .cartItems{
+  border: 1px solid var(--main-color);
+  border-radius: 15px;
+}
+.cart .fullCart .cartItem{
+  background-color: #eee;
+  padding: 15px;
+  display: flex;
+}
+.cart .fullCart .cartItem:not(:first-of-type){
+  margin-top: 15px;
+}
+.cart .fullCart .cartItem:first-of-type{
+  border-top-left-radius:15px ;
+  border-top-right-radius: 15px;
+}
+.cart .fullCart .cartItem:last-of-type{
+  border-bottom-left-radius:15px ;
+  border-bottom-right-radius: 15px;
+}
+.cart .fullCart .cartItem .info{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex: 1;
+  font-weight: bold;
+}
+.cart .fullCart .cartItem .info button{
+  border: none;
+  cursor: pointer;
+}
+.cart .fullCart .cartItem .info .icon{
+  color: var(--main-color);
+  font-size: 22px;
+}
+.cart .fullCart .cartItem img{
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+.cart .fullCart .cartSummary{
+  text-align: center;
+  margin-top: 50px;
+}
+.cart .fullCart .cartSummary p{
+  margin-bottom: 15px;
+}
+.cart .fullCart .cartSummary span{
+  font-weight: bold;
 }
 
 
