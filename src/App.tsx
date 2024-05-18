@@ -26,14 +26,14 @@ function App() {
       <Routes>
         <Route path='/' element={<Login/>}/>
 
-        <Route element={<AuthRequireUser/>}>
-          <Route path='/home' element={<><Header/><Outlet/><Footer/></>}>
-            <Route path='' element={<UserIndex/>}/>
-            <Route path='hotelSearch' element={<SearchResult/>}/>
-            <Route path='hotelSearch/hotels/:hotelID' element={<HotelInfo/>}/>
-            <Route path='cart' element={<Cart/>}/>
+          <Route element={<AuthRequireUser/>}>
+            <Route path='/home' element={<><Header/><Outlet/><Footer/></>}>
+              <Route path='' element={<UserIndex/>}/>
+              <Route path='hotelSearch' element={<SearchResult/>}/>
+              <Route path='hotelSearch/hotels/:hotelID' element={<HotelInfo/>}/>
+              <Route path='cart' element={<Cart/>}/>
+            </Route>
           </Route>
-        </Route>
 
         <Route element={<AuthRequireAdmin/>}>
           <Route path='/Adminhome' element={<AdminIndex/>}/>

@@ -440,7 +440,7 @@ footer .container a:hover{
   text-align: center;
 }
 .deal .info p:first-of-type{
-  color: #bfbfbf;
+  color: #6b5858;
   font-size: 14px;
   margin-bottom: 15px;
 }
@@ -607,11 +607,9 @@ footer .container a:hover{
 .searchResult .noHotelsFound span{
   display: block;
   font-size: 13.5px;
-  color: #bfbfbf;
+  color: #6b5858;
 }
-.searchResult .noHotelsFound a,
-.searchResult .content .searchedHotels .hotel a,
-.filterBar .fiterBy .priceBTN{
+.btn{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -622,10 +620,10 @@ footer .container a:hover{
   color: white;
   transition: all 0.3s linear;
   width: 150px;
+  border: none;
+  cursor: pointer;
 }
-.searchResult .noHotelsFound a:hover,
-.searchResult .content .searchedHotels .hotel a:hover,
-.filterBar .fiterBy .priceBTN:hover{
+.btn:hover{
   background-color: var(--main-color-alt);
 }
 .searchResult .content{
@@ -975,6 +973,27 @@ footer .container a:hover{
   border-width: 16px;
   border-style: solid;
   border-color: transparent transparent #eee transparent;
+}
+.cart{
+  padding: 50px 0;
+}
+.cart .emptyCart{
+  text-align: center;
+}
+.cart .emptyCart h2{
+  margin: 50px 0 20px;
+}
+.cart .emptyCart h2 span{
+  font-weight: bold;
+  color: var(--main-color);
+}
+.cart .emptyCart p{
+  color: #6b5858;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.cart .emptyCart p:last-of-type{
+  margin-bottom: 30px;
 }
 @media (max-width:767px){
   .availableRooms .content .room .roomInfo p.price::before{

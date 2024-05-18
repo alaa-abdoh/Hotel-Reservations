@@ -1,5 +1,6 @@
 // this folder has all types
 import { jwtDecode, JwtPayload  } from "jwt-decode";
+import { SweetAlertIcon } from 'sweetalert2';
 
 export type Reserve= {
     adults: number, 
@@ -192,4 +193,9 @@ export type roomCriteria= {
 }
 export type hotelRoomProps={
     room: roomCriteria
+}
+export type CartContextType= {
+    cartItems: roomCriteria[];
+    addToCart: (item: roomCriteria) => void;
+    removeFromCart: (itemId: number) => void;
 }

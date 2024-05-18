@@ -29,7 +29,6 @@ function PriceFilter(props: priceFilterProps) {
                     onChange={(e: any) => props.setMaxPrice(e.target.value)}
                 />
             </div>
-            {/* <button className="priceBTN" onClick={handleChange}>Apply</button> */}
         </div>
     );
 }

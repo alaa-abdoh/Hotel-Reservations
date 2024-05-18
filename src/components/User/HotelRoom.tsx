@@ -1,8 +1,25 @@
 import { hotelRoomProps } from "../../Types/app"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { useCart } from "../Context/CartProvider";
+import { showPopup } from "../ShowPopup";
 
 function HotelRoom(props:hotelRoomProps){
+    const { addToCart } = useCart();
+
+    function handleAddToCart(){
+        showPopup(
+            'Confirmation',
+            'Are you sure you want to add this room to your cart?',
+            'question',
+            true, "No"
+        ).then((result) => {
+            if (result.isConfirmed) {
+                addToCart(props.room);
+                showPopup("success", "The Room Added Successfully", "success", false)
+            }
+        });
+    }
     return(
         <div className="room">
             <div className="photo">
@@ -28,6 +45,7 @@ function HotelRoom(props:hotelRoomProps){
                     <FontAwesomeIcon icon={faXmark} style={{color:"red"}}/>  
                 }</p>
                 <p className="price">${props.room.price}</p>
+                <button onClick={handleAddToCart} className="btn">Add To Cart</button>
             </div>
         </div>
     )
