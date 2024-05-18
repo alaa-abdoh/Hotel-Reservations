@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCart } from "../Context/CartProvider";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { showPopup } from "../ShowPopup";
+import { Link } from "react-router-dom";
 
 function FullCart() {
   const { cartItems } = useCart();
@@ -46,7 +47,7 @@ function FullCart() {
       <div className="cartSummary">
         <h3>Cart Summary</h3>
         <p>Total: <span>${totalPrice}</span></p>
-        <button className="btn">Checkout</button>
+        <Link to="/home/cart/checkout" className="btn">Checkout</Link>
       </div>
     </div>
   );

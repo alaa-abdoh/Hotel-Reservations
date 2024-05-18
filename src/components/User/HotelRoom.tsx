@@ -6,20 +6,29 @@ import { showPopup } from "../ShowPopup";
 
 function HotelRoom(props:hotelRoomProps){
     const { addToCart } = useCart();
+    const { cartItems } = useCart();
 
-    function handleAddToCart(){
-        showPopup(
-            'Confirmation',
-            'Are you sure you want to add this room to your cart?',
-            'question',
-            true, "No"
-        ).then((result) => {
-            if (result.isConfirmed) {
-                addToCart(props.room);
-                showPopup("success", "The Room Added Successfully", "success", false)
-            }
-        });
+    function handleAddToCart(id:number){
+        if(checkExistential(id)){
+            showPopup("error", "sorry the room is already exist in the cart","error",false)
+        }else{
+            showPopup(
+                'Confirmation',
+                'Are you sure you want to add this room to your cart?',
+                'question',
+                true, "No"
+            ).then((result) => {
+                if (result.isConfirmed) {
+                    addToCart(props.room);
+                    showPopup("success", "The Room Added Successfully", "success", false)
+                }
+            });
+        }   
     }
+    function checkExistential(id: number){
+        return cartItems.some((room) => room.roomId === id);
+    }
+
     return(
         <div className="room">
             <div className="photo">
@@ -45,7 +54,7 @@ function HotelRoom(props:hotelRoomProps){
                     <FontAwesomeIcon icon={faXmark} style={{color:"red"}}/>  
                 }</p>
                 <p className="price">${props.room.price}</p>
-                <button onClick={handleAddToCart} className="btn">Add To Cart</button>
+                <button disabled={!props.room.availability} style={{background:!props.room.availability?"#e0e0e0":"#2196f3", color:!props.room.availability?"#00000042":"#ffffff"}} onClick={()=>handleAddToCart(props.room.roomId)} className="btn">{!props.room.availability?"UnAvailable":"Add To Cart"}</button>
             </div>
         </div>
     )

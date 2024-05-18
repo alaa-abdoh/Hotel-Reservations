@@ -1,23 +1,15 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 import { CartContextType, roomCriteria } from '../../Types/app';
 
-
-
-
-
-// Create the context with an initial value
 const CartContext = createContext<CartContextType>({
   cartItems: [],
   addToCart: () => {},
   removeFromCart: () => {},
 });
-// Custom hook to consume the context
 export function useCart() {
   const context = useContext(CartContext);
   return context;
 }
-
-// Provider component to wrap the app with
 interface CartProviderProps {
   children: ReactNode;
 }
