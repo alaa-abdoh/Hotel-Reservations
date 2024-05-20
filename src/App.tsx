@@ -12,6 +12,10 @@ import Footer from './components/User/Footer';
 import HotelInfo from './components/User/HotelInfo';
 import Cart from './components/User/Cart';
 import Checkout from './components/User/Checkout';
+import Cities from './components/Admin/Cities';
+import Hotels from './components/Admin/Hotels';
+import Rooms from './components/Admin/Rooms';
+import Introduction from './components/Admin/Introduction';
 
 function App() {
   const navigate = useNavigate();
@@ -37,8 +41,13 @@ function App() {
             </Route>
           </Route>
 
-        <Route element={<AuthRequireAdmin/>}>
-          <Route path='/Adminhome' element={<AdminIndex/>}/>
+        <Route element={<AuthRequireAdmin />}>
+          <Route path='/Adminhome' element={<AdminIndex />}>
+            <Route path="introduction" element={<Introduction />} />
+            <Route path="cities" element={<Cities />} />
+            <Route path="hotels" element={<Hotels />} />
+            <Route path="rooms" element={<Rooms />} />
+          </Route>
         </Route>
       </Routes>
     </div>

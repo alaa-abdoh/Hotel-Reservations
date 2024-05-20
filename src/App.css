@@ -1075,15 +1075,15 @@ footer .container a:hover{
 .form-group {
   margin-bottom: 20px;
 }
-label {
+.checkout label {
   display: block;
   margin-bottom: 5px;
   font-size: 16px;
   color: #555;
 }
-input[type="text"],
-input[type="email"],
-input[type="tel"] {
+.checkout input[type="text"],
+.checkout input[type="email"],
+.checkout input[type="tel"] {
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -1091,15 +1091,15 @@ input[type="tel"] {
   border-radius: 5px;
   transition: border-color 0.3s ease;
 }
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus {
+.checkout input[type="text"]:focus,
+.checkout input[type="email"]:focus,
+.checkout input[type="tel"]:focus {
   outline: none;
   border-color: var(--main-color);
 }
-input[type="text"]::placeholder,
-input[type="email"]::placeholder,
-input[type="tel"]::placeholder {
+.checkout input[type="text"]::placeholder,
+.checkout input[type="email"]::placeholder,
+.checkout input[type="tel"]::placeholder {
   color: #999;
 }
 .checkout-button {
@@ -1117,9 +1117,76 @@ input[type="tel"]::placeholder {
 .checkout-button:hover {
   background-color: var(--main-color-alt);
 }
-
-
-
+/*
+Admin Site
+*/
+.adminPage{
+  display: flex;
+}
+.adminPage .sideBar{
+  width: 220px;
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+  padding: 30px 5px 30px 30px;
+  box-shadow: 0 2px 10px 0 var(--main-color);
+  position: relative;
+}
+.adminPage .sideBar h2{
+  color: white;
+  text-align: center;
+  margin-bottom:30px ;
+}
+.adminPage .sideBar nav{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.adminPage .sideBar nav a{
+  color: white;
+  transition: all 0.3s linear;
+  position: relative;
+  overflow: hidden;
+}
+.adminPage .sideBar nav a:hover{
+  background-color: #1b1b1b;
+  color: var(--main-color);
+}
+.adminPage .sideBar nav a::before,
+.adminPage .sideBar nav a::after{
+    content: "";
+    position: absolute;
+    background-color: var(--main-color-alt);
+    height: 2px;
+    width: 100%;
+    transition: left 0.3s linear, right 0.3s linear;
+}
+.adminPage .sideBar nav a::before{
+    top: 0;
+    left: -100%;
+}
+.adminPage .sideBar nav a::after{
+    bottom: 0;
+    right: -100%;
+}
+.adminPage .sideBar nav a:hover::before{
+    left: 0;
+}
+.adminPage .sideBar nav a:hover::after{
+    right: 0;
+}
+.adminPage .sideBar .btn{
+  margin: 0;
+  position: sticky;
+  left: 0;
+  top: 90vh;
+}
+.adminPage .mainContent{
+  background-color: #1b1b1b;
+  color: white;
+  padding: 50px;
+  flex: 1;
+}
 
 @keyframes loaderMotion {
   0%{
