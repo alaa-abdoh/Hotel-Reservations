@@ -1123,6 +1123,11 @@ Admin Site
 .adminPage{
   display: flex;
 }
+@media(max-width:767px){
+  .adminPage{
+    flex-direction: column;
+  }
+}
 .adminPage .sideBar{
   width: 220px;
   min-height: 100vh;
@@ -1132,21 +1137,77 @@ Admin Site
   box-shadow: 0 2px 10px 0 var(--main-color);
   position: relative;
 }
+@media(max-width:767px){
+  .adminPage .sideBar{
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+}
 .adminPage .sideBar h2{
   color: white;
   text-align: center;
   margin-bottom:30px ;
 }
+@media(max-width:767px){
+  .adminPage .sideBar h2{
+    margin-bottom: 0;
+  }
+}
+.adminPage .sideBar .menu-icon{
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+@media(max-width:767px){
+  .adminPage .sideBar .menu-icon{
+    display: block;
+  }
+}
 .adminPage .sideBar nav{
   display: flex;
   flex-direction: column;
   gap: 15px;
+  transition: bottom 0.3s linear;
+}
+@media(max-width:767px){
+  .adminPage .sideBar nav.show{
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    bottom: -175px;
+    background-color: black;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+  }
+  .adminPage .sideBar nav.hide{
+    position: absolute;
+    bottom: 10000px;
+  }
+}
+.adminPage .sideBar nav.show{
+  position: absolute;
+}
+@media(max-width:767px){
+  .adminPage .sideBar nav{
+    flex-direction: row;
+  }
 }
 .adminPage .sideBar nav a{
   color: white;
   transition: all 0.3s linear;
   position: relative;
   overflow: hidden;
+}
+@media(max-width:767px){
+  .adminPage .sideBar nav.show a{
+    width: 50%;
+    margin: 0 auto;
+  }
 }
 .adminPage .sideBar nav a:hover{
   background-color: #1b1b1b;
@@ -1181,12 +1242,69 @@ Admin Site
   left: 0;
   top: 90vh;
 }
+@media(max-width:767px){
+  .adminPage .sideBar .btn{
+    position: static;
+    width: 100px;
+  }
+}
 .adminPage .mainContent{
   background-color: #1b1b1b;
   color: white;
   padding: 50px;
   flex: 1;
 }
+.adminPage .mainContent .introduction{
+  position: relative;
+  z-index: 5;
+}
+.adminPage .mainContent .introduction .content{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.adminPage .mainContent .introduction .content .photo{
+  width: 100%;
+  height: 250px;
+}
+.adminPage .mainContent .introduction .content .photo img{
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+.adminPage .mainContent .introduction .content div div{
+  border-radius: 15px;
+  margin-bottom: 25px;
+}
+.adminPage .mainContent .introduction .content div div h3{
+  transition: color 0.3s linear;
+}
+.adminPage .mainContent .introduction .content div div:hover h3{
+  color: var(--main-color);
+}
+.adminPage .mainContent .introduction .intro-container {
+  padding: 20px;
+  background-color: #333;
+}
+.adminPage .mainContent .introduction .intro-heading {
+  color: #fff;
+}
+.adminPage .mainContent .introduction .intro-text {
+  font-size: 16px;
+  color: #ccc;
+}
+.adminPage .mainContent .introduction .intro-container-alt {
+  padding: 20px;
+  background-color: #444;
+}
+.adminPage .mainContent .introduction .intro-heading-alt {
+  color: #eee;
+}
+.adminPage .mainContent .introduction .intro-text-alt {
+  font-size: 16px;
+  color: #ccc;
+}
+
 
 @keyframes loaderMotion {
   0%{
