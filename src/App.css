@@ -110,6 +110,11 @@ a{
   transform: translate(-50%, -50%);
   animation: loaderMotion 1s linear infinite ;
 }
+.adminPage .loader{
+  border: 3px solid var(--main-color);
+  border-bottom-color:transparent ;
+  border-right-color:transparent ;
+}
 .loginPage .content h2{
   color: white;
   text-align: center;
@@ -1253,6 +1258,7 @@ Admin Site
   color: white;
   padding: 50px;
   flex: 1;
+  position: relative;/*To manage the loader*/
 }
 .adminPage .mainContent .introduction{
   position: relative;
@@ -1304,8 +1310,61 @@ Admin Site
   font-size: 16px;
   color: #ccc;
 }
-
-
+.cities .content{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1fr,1fr));
+  gap: 40px;
+}
+.cities .heading{
+  z-index: 5;
+}
+.cities .content .city{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-radius: 15px;
+  border: 1px solid var(--main-color);
+  padding: 20px;
+}
+.cities .content .city span{
+  font-size: 20px;
+  font-weight: bold;
+  width: 150px;
+}
+.cities .content .city p{
+  max-width: 600px;
+  font-size: 15px;
+}
+.cities .content .city input{
+  border: none ;
+  border-bottom: 1px solid var(--main-color);
+  padding: 5px;
+  width: 100%;
+  background-color: transparent;
+  color: var(--main-color);
+}
+.cities .content .city input:focus{
+  outline: none;
+}
+.cities .content .city div{
+  width: 115px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.cities .content .city div .adminIcon{
+  font-size: 20px;
+  cursor: pointer;
+}
+.cities .content .city div .adminIcon:hover{
+  color: var(--main-color);
+}
+.cities .content .city div button{
+  margin:0;
+}
+.cities .content .city div button:not(:first-of-type){
+  margin-left: 10px;
+}
 @keyframes loaderMotion {
   0%{
     transform:translate(-50%, -50%) rotate(0deg);

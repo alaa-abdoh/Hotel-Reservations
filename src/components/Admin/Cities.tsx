@@ -1,6 +1,46 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Loader from "../Loader";
+import City from "./City";
+import { cityCriteria } from "../../Types/app";
+
 function Cities(){
+    const [cities, setCities]= useState([])
+    const [isLoading, setIsLoading]= useState(false)
+    const navigate= useNavigate();
+
+    useEffect(() => {
+        async function getCities() {
+            try {
+                setIsLoading(true);
+                const response = await axios.get(`
+                https://app-hotel-reservation-webapi-uae-dev-001.azurewebsites.net/api/cities`, {
+                    headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
+                });
+                setCities(response.data);
+                setIsLoading(false);
+            } catch (error: any) {
+                if (error.response.status === 401) {
+                    navigate("/");
+                    localStorage.removeItem("authToken")
+                    localStorage.removeItem("userType")
+                    window.history.replaceState(null, '', '/');
+                }
+            }
+        }
+        getCities();
+    }, [])
+
     return(
-        <p>this is city</p>
+        <div className="cities">
+            <h2 className="heading">Manage Cities</h2>
+            <div className="content">
+                {
+                    isLoading? <Loader/> : cities.map((city: cityCriteria)=> <City city={city} key={city.id}/>)
+                }
+            </div>
+        </div>
     )
 }
 export default Cities;

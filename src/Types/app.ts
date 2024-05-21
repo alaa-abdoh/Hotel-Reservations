@@ -199,3 +199,11 @@ export type CartContextType= {
     addToCart: (item: roomCriteria) => void;
     removeFromCart: (itemId: number) => void;
 }
+export type cityCriteria={
+    id:number,
+    description: string,
+    name: string
+}
+export type cityProps={
+    city: cityCriteria   
+}
