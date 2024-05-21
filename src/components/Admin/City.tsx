@@ -69,7 +69,7 @@ function City(props: cityProps){
     return(
         <div className="city">
             <span>{isEditing? <input onChange={(e)=>setName(e.target.value)} type="text" value={name}/>: props.city.name}</span>
-            <p>{isEditing? <input  onChange={(e)=>setDescription(e.target.value)} type="text" value={description}/>: props.city.description}</p>
+            <p title={props.city.description}>{isEditing? <input  onChange={(e)=>setDescription(e.target.value)} type="text" value={description}/>: props.city.description}</p>
             <div className="actions">
                 {
                     isEditing ? (

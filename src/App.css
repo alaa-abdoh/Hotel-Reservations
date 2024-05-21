@@ -1316,6 +1316,11 @@ Admin Site
   gap: 40px;
   margin-top: 40px;
 }
+@media (max-width:767px){
+  .cities .content{
+    grid-template-columns: repeat(auto-fit, minmax(100%,1fr));
+  }
+}
 .cities .heading{
   z-index: 5;
 }
@@ -1327,6 +1332,11 @@ Admin Site
   border: 1px solid var(--main-color);
   padding: 20px;
 }
+@media (max-width:767px){
+  .cities .content .city{
+    align-items: center;
+  }
+}
 .cities .content .city span{
   font-size: 20px;
   font-weight: bold;
@@ -1335,6 +1345,14 @@ Admin Site
 .cities .content .city p{
   max-width: 600px;
   font-size: 15px;
+}
+@media (max-width:767px){
+  .cities .content .city p{
+    max-height: 200px;
+    font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 .cities .content .city input,
 .addCity form input:not([type="submit"]),
@@ -1385,7 +1403,12 @@ Admin Site
   padding: 15px !important;
   margin: 0 auto;
 }
-
+@media (max-width:767px){
+  .addCity form input,
+.addCity form textarea{
+    width: 90% !important;
+  }
+}
 
 
 
