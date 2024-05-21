@@ -1314,6 +1314,7 @@ Admin Site
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(1fr,1fr));
   gap: 40px;
+  margin-top: 40px;
 }
 .cities .heading{
   z-index: 5;
@@ -1335,7 +1336,9 @@ Admin Site
   max-width: 600px;
   font-size: 15px;
 }
-.cities .content .city input{
+.cities .content .city input,
+.addCity form input:not([type="submit"]),
+.addCity form textarea{
   border: none ;
   border-bottom: 1px solid var(--main-color);
   padding: 5px;
@@ -1343,7 +1346,9 @@ Admin Site
   background-color: transparent;
   color: var(--main-color);
 }
-.cities .content .city input:focus{
+.cities .content .city input:focus,
+.addCity form input:not([type="submit"]):focus,
+.addCity form textarea{
   outline: none;
 }
 .cities .content .city div{
@@ -1365,6 +1370,25 @@ Admin Site
 .cities .content .city div button:not(:first-of-type){
   margin-left: 10px;
 }
+.addCity{
+  position: relative;
+  z-index: 10;
+}
+.addCity form{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.addCity form input,
+.addCity form textarea{
+  width: 50% !important;
+  padding: 15px !important;
+  margin: 0 auto;
+}
+
+
+
+
 @keyframes loaderMotion {
   0%{
     transform:translate(-50%, -50%) rotate(0deg);

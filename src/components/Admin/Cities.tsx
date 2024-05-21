@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Loader from "../Loader";
 import City from "./City";
 import { cityCriteria } from "../../Types/app";
@@ -35,6 +35,7 @@ function Cities(){
     return(
         <div className="cities">
             <h2 className="heading">Manage Cities</h2>
+            <Link to="addCity" className="btn">Add City</Link>
             <div className="content">
                 {
                     isLoading? <Loader/> : cities.map((city: cityCriteria)=> <City city={city} key={city.id}/>)

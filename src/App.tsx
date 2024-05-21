@@ -16,6 +16,7 @@ import Cities from './components/Admin/Cities';
 import Hotels from './components/Admin/Hotels';
 import Rooms from './components/Admin/Rooms';
 import Introduction from './components/Admin/Introduction';
+import AddCity from './components/Admin/AddCity';
 
 function App() {
   const navigate = useNavigate();
@@ -45,6 +46,7 @@ function App() {
           <Route path='/Adminhome' element={<AdminIndex />}>
             <Route path="introduction" element={<Introduction />} />
             <Route path="cities" element={<Cities />} />
+            <Route path="cities/addCity" element={<AddCity />} />
             <Route path="hotels" element={<Hotels />} />
             <Route path="rooms" element={<Rooms />} />
           </Route>
