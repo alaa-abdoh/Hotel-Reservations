@@ -17,6 +17,7 @@ import Hotels from './components/Admin/Hotels';
 import Rooms from './components/Admin/Rooms';
 import Introduction from './components/Admin/Introduction';
 import AddCity from './components/Admin/AddCity';
+import AddHotel from './components/Admin/AddHotel';
 
 function App() {
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ function App() {
             <Route path="cities" element={<Cities />} />
             <Route path="cities/addCity" element={<AddCity />} />
             <Route path="hotels" element={<Hotels />} />
-            {/* <Route path="hotels/addHotel" element={<AddHotel />} /> */}
+            <Route path="hotels/addHotel" element={<AddHotel />} />
             <Route path="rooms" element={<Rooms />} />
           </Route>
         </Route>

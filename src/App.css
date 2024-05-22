@@ -1327,6 +1327,11 @@ Admin Site
 .hotels .heading{
   z-index: 5;
 }
+.cities .content .city{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
 .cities .content .city,
 .hotels .content .hotel{
   border-radius: 15px;
@@ -1340,17 +1345,21 @@ Admin Site
 }
 .hotels .content .hotel{
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 3fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   align-items: center;
   gap: 10px;
   width: 100%;
 }
+@media (max-width:767px){
+  .hotels .content .hotel{
+    grid-template-columns: 1fr;
+  }
+}
 .cities .content .city span,
 .hotels .content .hotel span:first-of-type {
   font-size: 20px;
   font-weight: bold;
-  width: 150px;
 }
 .cities .content .city p{
   max-width: 600px;
@@ -1365,8 +1374,11 @@ Admin Site
   }
 }
 .cities .content .city input,
+.hotels .content .hotel input,
 .addCity form input:not([type="submit"]),
-.addCity form textarea{
+.addCity form textarea,
+.addHotel form input:not([type="submit"]),
+.addHotel form textarea{
   border: none ;
   border-bottom: 1px solid var(--main-color);
   padding: 5px;
@@ -1374,7 +1386,19 @@ Admin Site
   background-color: transparent;
   color: var(--main-color);
 }
+.addHotel select{
+  background-color: transparent;
+  border: none;
+  max-width: 300px;
+  color: white;
+}
+.adminPage select optgroup,
+.adminPage select optgroup option{
+  background-color: var(--main-color);
+  color: white;
+}
 .cities .content .city input:focus,
+.hotels .content .hotel input:focus,
 .addCity form input:not([type="submit"]):focus,
 .addCity form textarea{
   outline: none;
@@ -1385,6 +1409,11 @@ Admin Site
   display: flex;
   gap: 20px;
   align-items: center;
+}
+.hotels .content .hotel select{
+  background-color: transparent;
+  border: none;
+  color: white;
 }
 .cities .content .city div .adminIcon,
 .hotels .content .hotel div .adminIcon{
@@ -1403,24 +1432,30 @@ Admin Site
 .hotels .content .hotel div button:not(:first-of-type){
   margin-left: 10px;
 }
-.addCity{
+.addCity,
+.addHotel{
   position: relative;
   z-index: 10;
 }
-.addCity form{
+.addCity form,
+.addHotel form{
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 .addCity form input,
-.addCity form textarea{
+.addCity form textarea,
+.addHotel form input,
+.addHotel form textarea{
   width: 50% !important;
   padding: 15px !important;
   margin: 0 auto;
 }
 @media (max-width:767px){
   .addCity form input,
-.addCity form textarea{
+  .addCity form textarea,
+  .addHotel form input,
+  .addHotel form textarea{
     width: 90% !important;
   }
 }

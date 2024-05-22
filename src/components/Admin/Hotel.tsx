@@ -77,7 +77,7 @@ function Hotel(props:hotelProps){
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </optgroup>
-            </select>: props.hotel.starRating}★</p>
+            </select>: props.hotel.starRating} ★</p>
             <span>{isEditing? <select onChange={(e:any)=>setRoomType(e.target.value)}value={roomType}>
                 <option value="Double">Double</option>
                 <option value="King Suite">King Suite</option>
