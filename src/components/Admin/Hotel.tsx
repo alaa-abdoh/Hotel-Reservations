@@ -50,7 +50,6 @@ function Hotel(props:hotelProps){
                             headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
                         }
                     );
-                    setIsEditing(false);
                 } catch (error: any) {
                     if (error.response && error.response.status === 401) {
                         navigate("/");

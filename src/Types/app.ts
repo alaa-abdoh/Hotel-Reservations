@@ -192,7 +192,8 @@ export type roomCriteria= {
     availability: boolean
 }
 export type hotelRoomProps={
-    room: roomCriteria
+    room: roomCriteria,
+    hotelID?: number // for Delete Room in specific hotel
 }
 export type CartContextType= {
     cartItems: roomCriteria[];
@@ -208,7 +209,7 @@ export type cityProps={
     city: cityCriteria   
 }
 export type hotelCriteria_admin={
-    id: 139,
+    id: number,
     name: string,
     description: string,
     hotelType: string | number,
