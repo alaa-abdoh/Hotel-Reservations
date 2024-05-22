@@ -13,4 +13,4 @@ Password: admin
 
 Skills:HTML, CSS, react, jsx, typeScript
 
-🚀 Ready to launch? Deploy Link: hotel-reservations-eight.vercel.app
+🚀 Ready to launch? Deploy Link: https://hotel-reservations-eight.vercel.app/
