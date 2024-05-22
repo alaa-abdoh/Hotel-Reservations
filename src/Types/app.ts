@@ -207,3 +207,15 @@ export type cityCriteria={
 export type cityProps={
     city: cityCriteria   
 }
+export type hotelCriteria_admin={
+    id: 139,
+    name: string,
+    description: string,
+    hotelType: string | number,
+    starRating: number,
+    latitude: number,
+    longitude: number
+}
+export type hotelProps={
+    hotel: hotelCriteria_admin;
+}

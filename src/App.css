@@ -1310,24 +1310,25 @@ Admin Site
   font-size: 16px;
   color: #ccc;
 }
-.cities .content{
+.cities .content,
+.hotels .content{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(1fr,1fr));
   gap: 40px;
   margin-top: 40px;
 }
 @media (max-width:767px){
-  .cities .content{
+  .cities .content,
+  .hotels .content{
     grid-template-columns: repeat(auto-fit, minmax(100%,1fr));
   }
 }
-.cities .heading{
+.cities .heading,
+.hotels .heading{
   z-index: 5;
 }
-.cities .content .city{
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+.cities .content .city,
+.hotels .content .hotel{
   border-radius: 15px;
   border: 1px solid var(--main-color);
   padding: 20px;
@@ -1337,7 +1338,16 @@ Admin Site
     align-items: center;
   }
 }
-.cities .content .city span{
+.hotels .content .hotel{
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.cities .content .city span,
+.hotels .content .hotel span:first-of-type {
   font-size: 20px;
   font-weight: bold;
   width: 150px;
@@ -1369,23 +1379,28 @@ Admin Site
 .addCity form textarea{
   outline: none;
 }
-.cities .content .city div{
+.cities .content .city div,
+.hotels .content .hotel div{
   width: 115px;
   display: flex;
   gap: 20px;
   align-items: center;
 }
-.cities .content .city div .adminIcon{
+.cities .content .city div .adminIcon,
+.hotels .content .hotel div .adminIcon{
   font-size: 20px;
   cursor: pointer;
 }
-.cities .content .city div .adminIcon:hover{
+.cities .content .city div .adminIcon:hover,
+.hotels .content .hotel div .adminIcon:hover{
   color: var(--main-color);
 }
-.cities .content .city div button{
+.cities .content .city div button,
+.hotels .content .hotel div button{
   margin:0;
 }
-.cities .content .city div button:not(:first-of-type){
+.cities .content .city div button:not(:first-of-type),
+.hotels .content .hotel div button:not(:first-of-type){
   margin-left: 10px;
 }
 .addCity{

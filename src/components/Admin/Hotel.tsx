@@ -1,25 +1,28 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { cityProps } from "../../Types/app";
-import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import axios from "axios";
+import { hotelProps } from "../../Types/app";
 import { useNavigate } from "react-router-dom";
-import Loader from "../Loader";
+import axios from "axios";
 import { showPopup } from "../ShowPopup";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-function City(props: cityProps){
+function Hotel(props:hotelProps){
     const [isEditing, setIsEditing]= useState(false);
-    const [name, setName]= useState(props.city.name);
-    const [description, setDescription]= useState(props.city.description)
+    const [name, setName]= useState(props.hotel.name);
+    const [description, setDescription]= useState(props.hotel.description);
+    const [rating, setRating]= useState<number>(props.hotel.starRating)
+    const [roomType, setRoomType]= useState(props.hotel.hotelType)
     const navigate= useNavigate();
 
     async function handleSave(){
         try {
             const response = await axios.put(
-                `https://app-hotel-reservation-webapi-uae-dev-001.azurewebsites.net/api/cities/${props.city.id}`,
+                `https://app-hotel-reservation-webapi-uae-dev-001.azurewebsites.net/api/hotels/${props.hotel.id}`,
                 {
                     name: name,
-                    description: description
+                    description: description,
+                    starRating: rating,
+                    hotelType: roomType
                 },
                 {
                     headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
@@ -38,11 +41,11 @@ function City(props: cityProps){
         }
     }
     function handleDelete(){
-        showPopup("Confirmation", "Are You Sure You Want Delete This City ?","question",true,"No").then(async(result)=>{
+        showPopup("Confirmation", "Are You Sure You Want Delete This Hotel ?","question",true,"No").then(async(result)=>{
             if(result.isConfirmed){
                 try {
                     const response = await axios.delete(
-                        `https://app-hotel-reservation-webapi-uae-dev-001.azurewebsites.net/api/cities/${props.city.id}`,                       
+                        `No API from BackEnd to delete Hotel`,
                         {
                             headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
                         }
@@ -55,7 +58,7 @@ function City(props: cityProps){
                         localStorage.removeItem("userType");
                         window.history.replaceState(null, '', '/');
                     } else{
-                        showPopup("Failed", "There Is an error in the API", "error", false)
+                        showPopup("Failed", "No API from BackEnd to delete Hotel", "error", false)
                     }
                 }
             }
@@ -63,9 +66,24 @@ function City(props: cityProps){
     }
 
     return(
-        <div className="city">
-            <span>{isEditing? <input onChange={(e)=>setName(e.target.value)} type="text" value={name}/>: props.city.name}</span>
-            <p title={props.city.description}>{isEditing? <input  onChange={(e)=>setDescription(e.target.value)} type="text" value={description}/>: props.city.description}</p>
+        <div className="hotel">
+            <span>{isEditing? <input onChange={(e)=>setName(e.target.value)} type="text" value={name}/>: props.hotel.name}</span>
+            <p title={props.hotel.description}>{isEditing? <input  onChange={(e)=>setDescription(e.target.value)} type="text" value={description}/>: props.hotel.description}</p>
+            <p>{isEditing? <select  onChange={(e:any)=>setRating(e.target.value)}value={rating}>
+                <optgroup label="Rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </optgroup>
+            </select>: props.hotel.starRating}★</p>
+            <span>{isEditing? <select onChange={(e:any)=>setRoomType(e.target.value)}value={roomType}>
+                <option value="Double">Double</option>
+                <option value="King Suite">King Suite</option>
+                <option value="Cabin">Cabin</option>
+                <option value="Ocean View">Ocean View</option>
+            </select>: props.hotel.hotelType}</span>
             <div className="actions">
                 {
                     isEditing ? (
@@ -84,4 +102,4 @@ function City(props: cityProps){
         </div>
     )
 }
-export default City;
+export default Hotel;
