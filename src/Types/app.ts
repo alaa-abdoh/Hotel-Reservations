@@ -1,12 +1,9 @@
-// this folder has all types
 import { jwtDecode, JwtPayload  } from "jwt-decode";
-import { SweetAlertIcon } from 'sweetalert2';
 
 export type Reserve= {
     adults: number, 
     children: number, 
     rooms: number,
-    [key: string]: number; // this line added to make TS allow dynamic access to object property 
 }
 export type ReserveBoxProps= {
     reserve: Reserve,

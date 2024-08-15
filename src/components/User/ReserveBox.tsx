@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { ReserveBoxProps } from "../../Types/app";
 import ReserveBoxContent from "./ReserveBoxContent";
+import { Reserve } from "../../Types/app";
 
 function ReserveBox(props: ReserveBoxProps){
-    function updateReserveAmount(classification: string, operation: "+" | "-"){
+    function updateReserveAmount(classification: keyof Reserve, operation: "+" | "-"){
         const updatedReserve= {...props.reserve}
         if(operation === "+")
             updatedReserve[classification]+=1;
