@@ -17,7 +17,8 @@ import Introduction from './pages/admin/main page/Introduction';
 import Cities from './pages/admin/City/Cities';
 import AddCity from './pages/admin/City/AddCity';
 import Hotels from './pages/admin/Hotels/Hotels';
-import AddHotel from './pages/admin/Hotels/AddHotel';
+// lazy load for AddHotel component
+const AddHotel= React.lazy(()=>import('./pages/admin/Hotels/AddHotel'));
 import Rooms from './pages/admin/Rooms/Rooms';
 import Loader from './components/Loader';
 
@@ -52,7 +53,7 @@ function App() {
             <Route path="cities" element={<Cities />} />
             <Route path="cities/addCity" element={<AddCity />} />
             <Route path="hotels" element={<Hotels />} />
-            <Route path="hotels/addHotel" element={<AddHotel />} />
+            <Route path="hotels/addHotel" element={<Suspense fallback={<Loader/>}><AddHotel/></Suspense>} />
             <Route path="rooms" element={<Rooms />} />
           </Route>
         </Route>
