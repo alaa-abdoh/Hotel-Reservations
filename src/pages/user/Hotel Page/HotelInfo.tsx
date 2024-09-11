@@ -1,13 +1,14 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import HotelInfo_Basic from "./HotelInfo_Basic";
 import Reviews from "./Reviews";
-import HotelLocation from "./HotelLocation";
 import HotelImages from "./HotelImages";
 import AvailableRooms from "./AvailableRooms";
 import { hotelInfo } from "../../../Types/app";
 import Loader from "../../../components/Loader";
+// Lazy load for the map (HotelLocation component)
+const HotelLocation = React.lazy(() => import('./HotelLocation'));
 
 function HotelInfo(){
     const {hotelID} =useParams();
@@ -43,7 +44,11 @@ function HotelInfo(){
             <div className="container">
                 {hotelInfo ? <HotelInfo_Basic hotelInfo={hotelInfo} /> : null}
                 <Reviews hotelId={Number(hotelID)}/>
-                {hotelInfo ? <HotelLocation latitude={hotelInfo.latitude} longitude={hotelInfo.longitude} /> : null}
+                {hotelInfo ? (
+                    <Suspense fallback={<Loader />}>
+                        <HotelLocation latitude={hotelInfo.latitude} longitude={hotelInfo.longitude} />
+                    </Suspense>
+                ) : null}
                 <HotelImages hotelId={Number(hotelID)}/>
                 <AvailableRooms hotelId={Number(hotelID)}/>
             </div>
