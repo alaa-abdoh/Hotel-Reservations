@@ -217,3 +217,10 @@ export type hotelCriteria_admin={
 export type hotelProps={
     hotel: hotelCriteria_admin;
 }
+export type SelectFieldProps ={
+    label: string;
+    name: string;
+    value: string | number;
+    options: { value: string | number; label: string }[];
+    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+}

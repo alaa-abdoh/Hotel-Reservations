@@ -4,7 +4,7 @@ import axios from "axios";
 import { showPopup } from "../../../components/ShowPopup";
 import { cityCriteria } from "../../../Types/app";
 import Loader from "../../../components/Loader";
-
+import SelectFieldAddHotel from "./SelectFieldAddHotel";
 
 function AddHotel() {
     const [hotelDetails, setHotelDetails] = useState({
@@ -85,39 +85,26 @@ function AddHotel() {
             <form onSubmit={(e) => handleSubmit(e)}>
                 <input required type="text" name="name" placeholder="Hotel Name" onChange={handleChange} />
                 <textarea required name="description" rows={10} placeholder="Hotel Description" onChange={handleChange} />
-                <div className="main">
-                    <label htmlFor="stars">Stars</label>
-                    <select id="stars" name="rating" onChange={handleChange} value={hotelDetails.rating}>
-                        <optgroup label="Rating">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <div className="main">
-                    <label htmlFor="city">City</label>
-                    <select id="city" name="city" onChange={handleChange} value={hotelDetails.city}>
-                        <optgroup label="Cities">
-                            {
-                                cities.map((city: cityCriteria) => <option key={city.id} value={city.name}>{city.name}</option>)
-                            }
-                        </optgroup>
-                    </select>
-                </div>
-                <div className="main">
-                    <label htmlFor="type">Type</label>
-                    <select id="type" name="roomType" onChange={handleChange} value={hotelDetails.roomType}>
-                        <optgroup label="Type">
-                            <option value="Double">Double</option>
-                            <option value="King Suite">King Suite</option>
-                            <option value="Cabin">Cabin</option>
-                            <option value="Ocean View">Ocean View</option>
-                        </optgroup>
-                    </select>
-                </div>
+                <div className="selects">
+                    <SelectFieldAddHotel onChange={handleChange}  label="Stars" name="rating" value={hotelDetails.rating} options={[
+                        { value: 1, label: '1' },
+                        { value: 2, label: '2' },
+                        { value: 3, label: '3' },
+                        { value: 4, label: '4' },
+                        { value: 5, label: '5' }
+                    ]}/>
+                    <SelectFieldAddHotel label="City" name="city" value={hotelDetails.city} onChange={handleChange}
+                        options={cities.map((city:cityCriteria) => ({ value: city.name, label: city.name }))}
+                    />
+                    <SelectFieldAddHotel label="Room Type" name="roomType" value={hotelDetails.roomType} onChange={handleChange}
+                        options={[
+                            { value: 'Double', label: 'Double' },
+                            { value: 'King Suite', label: 'King Suite' },
+                            { value: 'Cabin', label: 'Cabin' },
+                            { value: 'Ocean View', label: 'Ocean View' }
+                        ]}
+                    />
+                    </div>
                 <input className="btn" type="submit" value="Add" />
             </form>
             {isLoading && <Loader />}
