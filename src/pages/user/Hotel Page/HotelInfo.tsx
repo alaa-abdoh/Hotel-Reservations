@@ -4,11 +4,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import HotelInfo_Basic from "./HotelInfo_Basic";
 import Reviews from "./Reviews";
 import HotelImages from "./HotelImages";
-import AvailableRooms from "./AvailableRooms";
 import { hotelInfo } from "../../../Types/app";
 import Loader from "../../../components/Loader";
 // Lazy load for the map (HotelLocation component)
 const HotelLocation = React.lazy(() => import('./HotelLocation'));
+ // Lazy load for AvailableRooms component
+const AvailableRooms = React.lazy(() => import('./AvailableRooms'));
 
 function HotelInfo(){
     const {hotelID} =useParams();
@@ -50,7 +51,11 @@ function HotelInfo(){
                     </Suspense>
                 ) : null}
                 <HotelImages hotelId={Number(hotelID)}/>
-                <AvailableRooms hotelId={Number(hotelID)}/>
+                {hotelInfo ? (
+                    <Suspense fallback={<Loader />}>
+                        <AvailableRooms hotelId={Number(hotelID)} />
+                    </Suspense>
+                ) : null}
             </div>
         </div>
     );
