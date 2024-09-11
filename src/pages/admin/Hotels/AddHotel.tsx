@@ -7,13 +7,15 @@ import Loader from "../../../components/Loader";
 
 
 function AddHotel() {
-    const [name, setName] = useState();
-    const [description, setDescription] = useState();
-    const [rating, setRating] = useState<number>()
-    const [roomType, setRoomType] = useState()
+    const [hotelDetails, setHotelDetails] = useState({
+        name: '',
+        description: '',
+        rating: 0,
+        roomType: '',
+        city: ''
+    });
     const [isLoading, setIsLoading] = useState(false)
     const [cities, setCities] = useState([])
-    const [city, setCity] = useState("")
     const navigate = useNavigate();
 
 
@@ -38,14 +40,23 @@ function AddHotel() {
         }
         getCities();
     }, [])
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setHotelDetails(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
     async function handleSubmit(e: any) {
         e.preventDefault();
         try {
             setIsLoading(true);
             const response = await axios.post(`
             No API to Add new Hotel`, {
-                name: name,
-                description: description
+                name: hotelDetails.name,
+                description: hotelDetails.description
             }, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
             });
@@ -72,11 +83,11 @@ function AddHotel() {
         <div className="addHotel">
             <h2 className="heading">Add Hotel</h2>
             <form onSubmit={(e) => handleSubmit(e)}>
-                <input required type="text" placeholder="Hotel Name" onChange={(e: any) => setName(e.target.value)} />
-                <textarea required rows={10} placeholder="Hotel Description" onChange={(e: any) => setDescription(e.target.value)} />
+                <input required type="text" name="name" placeholder="Hotel Name" onChange={handleChange} />
+                <textarea required name="description" rows={10} placeholder="Hotel Description" onChange={handleChange} />
                 <div style={{ margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", width: "180px" }}>
                     <label style={{ marginRight: "20px" }} htmlFor="stars">Stars</label>
-                    <select id="stars" onChange={(e: any) => setRating(e.target.value)} value={rating}>
+                    <select id="stars" name="rating" onChange={handleChange} value={hotelDetails.rating}>
                         <optgroup label="Rating">
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -88,7 +99,7 @@ function AddHotel() {
                 </div>
                 <div style={{ margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", width: "180px" }}>
                     <label style={{ marginRight: "20px" }} htmlFor="city">City</label>
-                    <select id="city" onChange={(e: any) => setCity(e.target.value)} value={city}>
+                    <select id="city" name="city" onChange={handleChange} value={hotelDetails.city}>
                         <optgroup label="Cities">
                             {
                                 cities.map((city: cityCriteria) => <option key={city.id} value={city.name}>{city.name}</option>)
@@ -98,7 +109,7 @@ function AddHotel() {
                 </div>
                 <div style={{ margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", width: "180px" }}>
                     <label style={{ marginRight: "20px" }} htmlFor="type">Type</label>
-                    <select id="type" onChange={(e: any) => setRoomType(e.target.value)} value={roomType}>
+                    <select id="type" name="roomType" onChange={handleChange} value={hotelDetails.roomType}>
                         <optgroup label="Type">
                             <option value="Double">Double</option>
                             <option value="King Suite">King Suite</option>
