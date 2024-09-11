@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { hotelProps } from "../../../Types/app";
 import { showPopup } from "../../../components/ShowPopup";
+import handleUnauthorized from "../../../components/HandleUnauthorized";
 
 function Hotel(props:hotelProps){
     const [isEditing, setIsEditing]= useState(false);
@@ -31,10 +32,7 @@ function Hotel(props:hotelProps){
             setIsEditing(false);
         } catch (error: any) {
             if (error.response && error.response.status === 401) {
-                navigate("/");
-                localStorage.removeItem("authToken");
-                localStorage.removeItem("userType");
-                window.history.replaceState(null, '', '/');
+                handleUnauthorized();                
             } else{
                 showPopup("Failed", "There Is error in the API", "error", false)
             }
@@ -52,10 +50,7 @@ function Hotel(props:hotelProps){
                     );
                 } catch (error: any) {
                     if (error.response && error.response.status === 401) {
-                        navigate("/");
-                        localStorage.removeItem("authToken");
-                        localStorage.removeItem("userType");
-                        window.history.replaceState(null, '', '/');
+                        handleUnauthorized();
                     } else{
                         showPopup("Failed", "No API from BackEnd to delete Hotel", "error", false)
                     }

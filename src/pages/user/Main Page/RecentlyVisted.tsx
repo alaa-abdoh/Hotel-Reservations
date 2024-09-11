@@ -4,6 +4,7 @@ import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import VisitedHotel from "./VisitedHotel";
 import { MyJwtPayload, visitedHotel } from "../../../Types/app";
+import handleUnauthorized from "../../../components/HandleUnauthorized";
 
 function RecentlyVisited() {
     const [Visted, setVisited] = useState([])
@@ -23,10 +24,7 @@ function RecentlyVisited() {
                 }
             } catch (error:any) {
                 if(error.response.status === 401){
-                    navigate("/");
-                    localStorage.removeItem("authToken")
-                    localStorage.removeItem("userType")
-                    window.history.replaceState(null, '', '/');
+                    handleUnauthorized();
                 }
             }
         }

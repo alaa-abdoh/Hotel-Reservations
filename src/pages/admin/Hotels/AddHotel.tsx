@@ -5,6 +5,7 @@ import { showPopup } from "../../../components/ShowPopup";
 import { cityCriteria } from "../../../Types/app";
 import Loader from "../../../components/Loader";
 import SelectFieldAddHotel from "./SelectFieldAddHotel";
+import handleUnauthorized from "../../../components/HandleUnauthorized";
 
 function AddHotel() {
     const [hotelDetails, setHotelDetails] = useState({
@@ -31,10 +32,7 @@ function AddHotel() {
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    navigate("/");
-                    localStorage.removeItem("authToken")
-                    localStorage.removeItem("userType")
-                    window.history.replaceState(null, '', '/');
+                    handleUnauthorized()
                 }
             }
         }
@@ -67,10 +65,7 @@ function AddHotel() {
             })
         } catch (error: any) {
             if (error.response.status === 401) {
-                navigate("/");
-                localStorage.removeItem("authToken")
-                localStorage.removeItem("userType")
-                window.history.replaceState(null, '', '/');
+                handleUnauthorized()
             }
             else {
                 showPopup("Failed", "No API yet to Add new Hotel", "error", false);

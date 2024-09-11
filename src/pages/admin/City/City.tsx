@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { cityProps } from "../../../Types/app";
 import { showPopup } from "../../../components/ShowPopup";
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
+import handleUnauthorized from "../../../components/HandleUnauthorized";
 
 
 function City(props: cityProps){
@@ -28,10 +29,7 @@ function City(props: cityProps){
             setIsEditing(false);
         } catch (error: any) {
             if (error.response && error.response.status === 401) {
-                navigate("/");
-                localStorage.removeItem("authToken");
-                localStorage.removeItem("userType");
-                window.history.replaceState(null, '', '/');
+                handleUnauthorized();
             } else{
                 showPopup("Failed", "There Is error in the API", "error", false)
             }

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import TrendHotel from "./TrendHotel";
 import { trendHotel } from "../../../Types/app";
+import handleUnauthorized from "../../../components/HandleUnauthorized";
 
 function TrendingDestinations() {
     const [trends, setTrends] = useState([])
@@ -17,10 +18,7 @@ function TrendingDestinations() {
                 setTrends(response.data);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    navigate("/");
-                    localStorage.removeItem("authToken")
-                    localStorage.removeItem("userType")
-                    window.history.replaceState(null, '', '/');
+                    handleUnauthorized()
                 }
             }
         }

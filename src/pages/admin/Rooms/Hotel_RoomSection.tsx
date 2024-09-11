@@ -5,6 +5,7 @@ import Room from "./Room";
 import { hotelProps, roomCriteria } from "../../../Types/app";
 import StarRating from "../../../components/StarRating";
 import Loader from "../../../components/Loader";
+import handleUnauthorized from "../../../components/HandleUnauthorized";
 
 
 function Hotel_RoomSection(props: hotelProps) {
@@ -29,10 +30,7 @@ function Hotel_RoomSection(props: hotelProps) {
         setIsLoadingRooms(false);
       } catch (error: any) {
         if (error.response.status === 401) {
-          navigate("/");
-          localStorage.removeItem("authToken");
-          localStorage.removeItem("userType");
-          window.history.replaceState(null, "", "/");
+          handleUnauthorized()
         }
       }
     }

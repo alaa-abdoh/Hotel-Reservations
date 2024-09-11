@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import SearchSuccess from "./SearchSuccess";
 import { searchedHotel } from "../../../Types/app";
 import Loader from "../../../components/Loader";
+import handleUnauthorized from "../../../components/HandleUnauthorized";
 
 
 function SearchResult(){
@@ -28,10 +29,7 @@ function SearchResult(){
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    navigate("/");
-                    localStorage.removeItem("authToken")
-                    localStorage.removeItem("userType")
-                    window.history.replaceState(null, '', '/');
+                    handleUnauthorized()
                 }
             }
         }

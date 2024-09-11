@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Hotel_RoomSection from './Hotel_RoomSection';
 import { hotelCriteria_admin } from '../../../Types/app';
 import Loader from '../../../components/Loader';
+import handleUnauthorized from '../../../components/HandleUnauthorized';
 
 function Hotels_RoomsSection(){
     const [hotels, setHotels] = useState<hotelCriteria_admin[]>([]);
@@ -22,10 +23,7 @@ function Hotels_RoomsSection(){
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    navigate('/');
-                    localStorage.removeItem('authToken');
-                    localStorage.removeItem('userType');
-                    window.history.replaceState(null, '', '/');
+                    handleUnauthorized()
                 }
             }
         }

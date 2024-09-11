@@ -4,6 +4,7 @@ import axios from "axios";
 import HotelRoom from "./HotelRoom";
 import { availableRoomsProps, roomCriteria } from "../../../Types/app";
 import Loader from "../../../components/Loader";
+import handleUnauthorized from "../../../components/HandleUnauthorized";
 
 function AvailableRooms(props: availableRoomsProps){
     const [rooms, setRooms]= useState([])
@@ -37,10 +38,7 @@ function AvailableRooms(props: availableRoomsProps){
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    navigate("/");
-                    localStorage.removeItem("authToken")
-                    localStorage.removeItem("userType")
-                    window.history.replaceState(null, '', '/');
+                    handleUnauthorized();
                 }
             }
         }

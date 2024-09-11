@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Deal from "./Deal";
 import { useNavigate } from "react-router-dom";
 import { hotelDeal } from "../../../Types/app";
+import handleUnauthorized from "../../../components/HandleUnauthorized";
 
 function FeaturesDeals(){
     const [deals, setDeals] = useState([]);
@@ -17,10 +18,7 @@ function FeaturesDeals(){
             setDeals(response.data);
           } catch (error: any) {
             if(error.response.status === 401){
-              navigate("/");
-              localStorage.removeItem("authToken")
-              localStorage.removeItem("userType")
-              window.history.replaceState(null, '', '/');
+              handleUnauthorized()
           }
           }
         }
