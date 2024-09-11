@@ -2,7 +2,7 @@ import './App.css';
 import Login from './components/Login';
 import { Outlet, Route, Routes, useNavigate } from 'react-router-dom';
 import UserIndex from './pages/user/Main Page/UserIndex';
-import { useEffect } from 'react';
+import React, { Suspense, useEffect } from "react";
 import AuthRequireUser from './Auth/AuthRequireUser';
 import AuthRequireAdmin from './Auth/AuthRequireAdmin';
 import Header from './pages/user/Header';
@@ -10,7 +10,8 @@ import SearchResult from './pages/user/Search Result/SearchResult';
 import Footer from './pages/user/Footer';
 import HotelInfo from './pages/user/Hotel Page/HotelInfo';
 import Cart from './pages/user/Cart/Cart';
-import Checkout from './pages/user/Checkout/Checkout';
+// lazy load for Checkout component
+const Checkout= React.lazy(()=> import("./pages/user/Checkout/Checkout"))
 import AdminIndex from './pages/admin/main page/AdminIndex';
 import Introduction from './pages/admin/main page/Introduction';
 import Cities from './pages/admin/City/Cities';
@@ -18,6 +19,7 @@ import AddCity from './pages/admin/City/AddCity';
 import Hotels from './pages/admin/Hotels/Hotels';
 import AddHotel from './pages/admin/Hotels/AddHotel';
 import Rooms from './pages/admin/Rooms/Rooms';
+import Loader from './components/Loader';
 
 
 function App() {
@@ -40,7 +42,7 @@ function App() {
               <Route path='hotelSearch' element={<SearchResult/>}/>
               <Route path='hotelSearch/hotels/:hotelID' element={<HotelInfo/>}/>
               <Route path='cart' element={<Cart/>}/>
-              <Route path='cart/checkout' element={<Checkout/>}/>
+              <Route path='cart/checkout' element={<Suspense fallback={<Loader/>}><Checkout/></Suspense>}/>
             </Route>
           </Route>
 
