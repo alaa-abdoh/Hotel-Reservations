@@ -1,23 +1,24 @@
 import './App.css';
 import Login from './components/Login';
 import { Outlet, Route, Routes, useNavigate } from 'react-router-dom';
-import UserIndex from './components/User/UserIndex';
-import AdminIndex from './components/Admin/AdminIndex';
+import UserIndex from './pages/user/Main Page/UserIndex';
 import { useEffect } from 'react';
-import AuthRequireUser from './components/User/AuthRequireUser';
-import AuthRequireAdmin from './components/Admin/AuthRequireAdmin';
-import Header from './components/User/Header';
-import SearchResult from './components/User/SearchResult';
-import Footer from './components/User/Footer';
-import HotelInfo from './components/User/HotelInfo';
-import Cart from './components/User/Cart';
-import Checkout from './components/User/Checkout';
-import Cities from './components/Admin/Cities';
-import Hotels from './components/Admin/Hotels';
-import Rooms from './components/Admin/Rooms';
-import Introduction from './components/Admin/Introduction';
-import AddCity from './components/Admin/AddCity';
-import AddHotel from './components/Admin/AddHotel';
+import AuthRequireUser from './Auth/AuthRequireUser';
+import AuthRequireAdmin from './Auth/AuthRequireAdmin';
+import Header from './pages/user/Header';
+import SearchResult from './pages/user/Search Result/SearchResult';
+import Footer from './pages/user/Footer';
+import HotelInfo from './pages/user/Hotel Page/HotelInfo';
+import Cart from './pages/user/Cart/Cart';
+import Checkout from './pages/user/Checkout/Checkout';
+import AdminIndex from './pages/admin/main page/AdminIndex';
+import Introduction from './pages/admin/main page/Introduction';
+import Cities from './pages/admin/City/Cities';
+import AddCity from './pages/admin/City/AddCity';
+import Hotels from './pages/admin/Hotels/Hotels';
+import AddHotel from './pages/admin/Hotels/AddHotel';
+import Rooms from './pages/admin/Rooms/Rooms';
+
 
 function App() {
   const navigate = useNavigate();
