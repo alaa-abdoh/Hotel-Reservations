@@ -1392,6 +1392,16 @@ Admin Site
   max-width: 300px;
   color: white;
 }
+.addHotel select .main{
+  margin: "0 auto";
+  display: "flex";
+  justify-content: "space-between";
+  align-items: "center";
+  width: "180px" ;
+}
+.addHotel select .main label{
+  margin-right: 20px;
+}
 .adminPage select optgroup,
 .adminPage select optgroup option{
   background-color: var(--main-color);

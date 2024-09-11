@@ -85,8 +85,8 @@ function AddHotel() {
             <form onSubmit={(e) => handleSubmit(e)}>
                 <input required type="text" name="name" placeholder="Hotel Name" onChange={handleChange} />
                 <textarea required name="description" rows={10} placeholder="Hotel Description" onChange={handleChange} />
-                <div style={{ margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", width: "180px" }}>
-                    <label style={{ marginRight: "20px" }} htmlFor="stars">Stars</label>
+                <div className="main">
+                    <label htmlFor="stars">Stars</label>
                     <select id="stars" name="rating" onChange={handleChange} value={hotelDetails.rating}>
                         <optgroup label="Rating">
                             <option value="1">1</option>
@@ -97,8 +97,8 @@ function AddHotel() {
                         </optgroup>
                     </select>
                 </div>
-                <div style={{ margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", width: "180px" }}>
-                    <label style={{ marginRight: "20px" }} htmlFor="city">City</label>
+                <div className="main">
+                    <label htmlFor="city">City</label>
                     <select id="city" name="city" onChange={handleChange} value={hotelDetails.city}>
                         <optgroup label="Cities">
                             {
@@ -107,8 +107,8 @@ function AddHotel() {
                         </optgroup>
                     </select>
                 </div>
-                <div style={{ margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", width: "180px" }}>
-                    <label style={{ marginRight: "20px" }} htmlFor="type">Type</label>
+                <div className="main">
+                    <label htmlFor="type">Type</label>
                     <select id="type" name="roomType" onChange={handleChange} value={hotelDetails.roomType}>
                         <optgroup label="Type">
                             <option value="Double">Double</option>
