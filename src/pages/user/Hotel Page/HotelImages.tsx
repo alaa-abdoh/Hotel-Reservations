@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { hotelImagesProps, hotelImg } from "../../../Types/app";
 import Loader from "../../../components/Loader";
-import handleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/HandleUnauthorized";
 
 
 function HotelImages(props: hotelImagesProps){
@@ -22,7 +22,7 @@ function HotelImages(props: hotelImagesProps){
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    handleUnauthorized()
+                    useHandleUnauthorized()
                 }
             }
         }

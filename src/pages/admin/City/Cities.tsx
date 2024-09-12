@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Loader from "../../../components/Loader";
 import { cityCriteria } from "../../../Types/app";
 import City from "./City";
-import handleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/HandleUnauthorized";
 
 
 function Cities(){
@@ -24,7 +24,7 @@ function Cities(){
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    handleUnauthorized();
+                    useHandleUnauthorized();
                 }
             }
         }

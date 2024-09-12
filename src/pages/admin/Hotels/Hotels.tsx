@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Hotel from "./Hotel";
 import { hotelCriteria_admin } from "../../../Types/app";
 import Loader from "../../../components/Loader";
-import handleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/HandleUnauthorized";
 
 function Hotels(){
     const [hotels, setHotels]= useState([])
@@ -23,7 +23,7 @@ function Hotels(){
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    handleUnauthorized();
+                    useHandleUnauthorized();
                 }
             }
         }

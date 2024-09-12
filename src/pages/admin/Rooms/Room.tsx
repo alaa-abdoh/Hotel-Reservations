@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { hotelRoomProps } from '../../../Types/app';
 import { showPopup } from '../../../components/ShowPopup';
-import handleUnauthorized from '../../../components/HandleUnauthorized';
+import useHandleUnauthorized from '../../../components/HandleUnauthorized';
 
 function Room(props:hotelRoomProps) {
     const navigate= useNavigate();
@@ -25,7 +25,7 @@ function Room(props:hotelRoomProps) {
                     showPopup("Success","Deleted Successfully","success",false)
                 } catch (error: any) {
                     if (error.response && error.response.status === 401) {
-                        handleUnauthorized();
+                        useHandleUnauthorized();
                     }
                 }
             }else{

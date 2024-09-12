@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { showPopup } from "../../../components/ShowPopup";
 import Loader from "../../../components/Loader";
-import handleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/HandleUnauthorized";
 
 function AddCity(){
     const[name, setName]= useState("");
@@ -29,7 +29,7 @@ function AddCity(){
             })
         } catch (error: any) {
             if (error.response.status === 401) {
-                handleUnauthorized();
+                useHandleUnauthorized();
             }
         }
     }

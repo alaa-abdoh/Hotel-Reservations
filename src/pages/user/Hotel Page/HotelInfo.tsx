@@ -6,7 +6,7 @@ import Reviews from "./Reviews";
 import HotelImages from "./HotelImages";
 import { hotelInfo } from "../../../Types/app";
 import Loader from "../../../components/Loader";
-import handleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/HandleUnauthorized";
 // Lazy load for the map (HotelLocation component)
 const HotelLocation = React.lazy(() => import('./HotelLocation'));
  // Lazy load for AvailableRooms component
@@ -30,7 +30,7 @@ function HotelInfo(){
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    handleUnauthorized();
+                    useHandleUnauthorized();
                 }
             }
         }

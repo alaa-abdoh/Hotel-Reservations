@@ -5,7 +5,7 @@ import { showPopup } from "../../../components/ShowPopup";
 import { cityCriteria } from "../../../Types/app";
 import Loader from "../../../components/Loader";
 import SelectFieldAddHotel from "./SelectFieldAddHotel";
-import handleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/HandleUnauthorized";
 import { Form, Field, Formik } from "formik";
 import validationSchema from "./AddHotelValidationSchema";
 import styles from "./AddHotel.module.css";
@@ -28,7 +28,7 @@ function AddHotel() {
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    handleUnauthorized()
+                    useHandleUnauthorized()
                 }
             }
         }
@@ -53,7 +53,7 @@ function AddHotel() {
             })
         } catch (error: any) {
             if (error.response.status === 401) {
-                handleUnauthorized()
+                useHandleUnauthorized()
             }
             else {
                 showPopup("Failed", "No API yet to Add new Hotel", "error", false);
