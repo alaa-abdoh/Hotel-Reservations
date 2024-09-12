@@ -7,6 +7,7 @@ import Loader from "../../../components/Loader";
 import SelectFieldAddHotel from "./SelectFieldAddHotel";
 import handleUnauthorized from "../../../components/HandleUnauthorized";
 import { Form, Field, Formik } from "formik";
+import validationSchema from "./AddHotelValidationSchema";
 
 function AddHotel() {
     const [isLoading, setIsLoading] = useState(false)
@@ -72,11 +73,14 @@ function AddHotel() {
                     city: ''
                 }}
                 onSubmit={handleSubmit}
+                validationSchema={validationSchema}
             >
-                {({ handleChange, values }) => (
+                {({ handleChange, values, errors }) => (
                     <Form>
-                        <Field required type="text" name="name" placeholder="Hotel Name" onChange={handleChange} />
-                        <Field as="textarea" required name="description" rows={10} placeholder="Hotel Description" onChange={handleChange} />
+                        <Field type="text" name="name" placeholder="Hotel Name" onChange={handleChange} />
+                        {errors.name  ? <div className="error">{errors.name}</div> : null}
+                        <Field as="textarea" name="description" rows={10} placeholder="Hotel Description" onChange={handleChange} />
+                        {errors.description ? <div className="error">{errors.description}</div> : null}
 
                         <div className="selects">
                             <SelectFieldAddHotel
@@ -91,7 +95,8 @@ function AddHotel() {
                                     { value: 4, label: '4' },
                                     { value: 5, label: '5' }
                                 ]}
-                            />
+                            /> 
+                            {errors.rating ? <div className="error">{errors.rating}</div> : null}
                             <SelectFieldAddHotel
                                 label="City"
                                 name="city"
@@ -99,6 +104,7 @@ function AddHotel() {
                                 onChange={handleChange}
                                 options={cities.map((city: cityCriteria) => ({ value: city.name, label: city.name }))}
                             />
+                            {errors.city ? <div className="error">{errors.city}</div> : null}
                             <SelectFieldAddHotel
                                 label="Room Type"
                                 name="roomType"
@@ -111,6 +117,7 @@ function AddHotel() {
                                     { value: 'Ocean View', label: 'Ocean View' }
                                 ]}
                             />
+                            {errors.roomType ? <div className="error">{errors.roomType}</div> : null}
                         </div>
 
                         <input className="btn" type="submit" value="Add" />
