@@ -8,6 +8,7 @@ import SelectFieldAddHotel from "./SelectFieldAddHotel";
 import handleUnauthorized from "../../../components/HandleUnauthorized";
 import { Form, Field, Formik } from "formik";
 import validationSchema from "./AddHotelValidationSchema";
+import styles from "./AddHotel.module.css";
 
 function AddHotel() {
     const [isLoading, setIsLoading] = useState(false)
@@ -62,8 +63,8 @@ function AddHotel() {
     }
 
     return (
-        <div className="addHotel">
-            <h2 className="heading">Add Hotel</h2>
+        <div className={styles.addHotel}>
+            <h2 className={styles.heading}>Add Hotel</h2>
             <Formik
                 initialValues={{
                     name: '',
@@ -78,11 +79,11 @@ function AddHotel() {
                 {({ handleChange, values, errors }) => (
                     <Form>
                         <Field type="text" name="name" placeholder="Hotel Name" onChange={handleChange} />
-                        {errors.name  ? <div className="error">{errors.name}</div> : null}
+                        {errors.name  ? <div className={styles.error}>{errors.name}</div> : null}
                         <Field as="textarea" name="description" rows={10} placeholder="Hotel Description" onChange={handleChange} />
-                        {errors.description ? <div className="error">{errors.description}</div> : null}
+                        {errors.description ? <div className={styles.error}>{errors.description}</div> : null}
 
-                        <div className="selects">
+                        <div className={styles.selects}>
                             <SelectFieldAddHotel
                                 label="Stars"
                                 name="rating"
@@ -96,7 +97,7 @@ function AddHotel() {
                                     { value: 5, label: '5' }
                                 ]}
                             /> 
-                            {errors.rating ? <div className="error">{errors.rating}</div> : null}
+                            {errors.rating ? <div className={styles.error}>{errors.rating}</div> : null}
                             <SelectFieldAddHotel
                                 label="City"
                                 name="city"
@@ -104,7 +105,7 @@ function AddHotel() {
                                 onChange={handleChange}
                                 options={cities.map((city: cityCriteria) => ({ value: city.name, label: city.name }))}
                             />
-                            {errors.city ? <div className="error">{errors.city}</div> : null}
+                            {errors.city ? <div className={styles.error}>{errors.city}</div> : null}
                             <SelectFieldAddHotel
                                 label="Room Type"
                                 name="roomType"
@@ -117,10 +118,10 @@ function AddHotel() {
                                     { value: 'Ocean View', label: 'Ocean View' }
                                 ]}
                             />
-                            {errors.roomType ? <div className="error">{errors.roomType}</div> : null}
+                            {errors.roomType ? <div className={styles.error}>{errors.roomType}</div> : null}
                         </div>
 
-                        <input className="btn" type="submit" value="Add" />
+                        <input className={styles.btn} type="submit" value="Add" />
                     </Form>
                 )}
             </Formik>

@@ -1,0 +1,74 @@
+.addHotel{
+    position: relative;
+    z-index: 10;
+}
+.addHotel form{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.addHotel form input,
+.addHotel form textarea{
+  width: 50% !important;
+  padding: 15px !important;
+  margin: 0 auto;
+}
+.addHotel form input:focus,
+.addHotel form textarea:focus{
+    outline: none;
+}
+@media (max-width:767px){
+  .addHotel form input,
+  .addHotel form textarea{
+    width: 90% !important;
+  }
+}
+.addHotel input[type="submit"]{
+    border: none ;
+    border-radius:50px;
+    padding: 5px;
+    width: 100%;
+    background-color: var(--main-color);
+    color: white;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+.addHotel input[type="submit"]:hover{
+    background-color: var(--main-color-alt);
+}
+.addHotel form input:not([type="submit"]),
+.addHotel form textarea{
+  border: none ;
+  border-bottom: 1px solid var(--main-color);
+  padding: 5px;
+  width: 100%;
+  background-color: transparent;
+  color: var(--main-color);
+}
+.addHotel form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.addHotel form .error{
+    font-size: 14px;
+    color: var(--main-color-alt);
+    padding: 5px;
+}
+.addHotel select{
+    background-color: transparent;
+    border: none;
+    max-width: 300px;
+    color: white;
+    text-align: center;
+    flex: 1;
+}
+.addHotel .main label{
+    margin-right: 20px;
+}
+.addHotel select optgroup,
+.addHotel select optgroup option{
+  background-color: var(--main-color);
+  color: white;
+}
