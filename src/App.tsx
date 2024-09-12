@@ -10,18 +10,17 @@ import SearchResult from './pages/user/Search Result/SearchResult';
 import Footer from './pages/user/Footer';
 import HotelInfo from './pages/user/Hotel Page/HotelInfo';
 import Cart from './pages/user/Cart/Cart';
-// lazy load for Checkout component
-const Checkout= React.lazy(()=> import("./pages/user/Checkout/Checkout"))
 import AdminIndex from './pages/admin/main page/AdminIndex';
 import Introduction from './pages/admin/main page/Introduction';
 import Cities from './pages/admin/City/Cities';
 import AddCity from './pages/admin/City/AddCity';
 import Hotels from './pages/admin/Hotels/Hotels';
-// lazy load for AddHotel component
-const AddHotel= React.lazy(()=>import('./pages/admin/Hotels/AddHotel'));
 import Rooms from './pages/admin/Rooms/Rooms';
 import Loader from './components/Loader';
-
+// lazy load for Checkout component
+const Checkout= React.lazy(()=> import("./pages/user/Checkout/Checkout"))
+// lazy load for AddHotel component
+const AddHotel= React.lazy(()=>import('./pages/admin/Hotels/AddHotel'));
 
 function App() {
   const navigate = useNavigate();
