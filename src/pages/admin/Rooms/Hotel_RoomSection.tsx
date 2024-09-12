@@ -5,14 +5,14 @@ import Room from "./Room";
 import { hotelProps, roomCriteria } from "../../../Types/app";
 import StarRating from "../../../components/StarRating";
 import Loader from "../../../components/Loader";
-import useHandleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/UseHandleUnauthorized";
 
 
 function Hotel_RoomSection(props: hotelProps) {
   const [isRoomsVisible, setIsRoomsVisible] = useState(false);
   const [rooms, setRooms] = useState<roomCriteria[]>([]);
   const [isLoadingRooms, setIsLoadingRooms] = useState(false);
-  const navigate = useNavigate();
+  const handleUnauthorized = useHandleUnauthorized();
 
   const handleHotelClick = async () => {
     if (!isRoomsVisible) {
@@ -30,7 +30,7 @@ function Hotel_RoomSection(props: hotelProps) {
         setIsLoadingRooms(false);
       } catch (error: any) {
         if (error.response.status === 401) {
-          useHandleUnauthorized()
+          handleUnauthorized()
         }
       }
     }

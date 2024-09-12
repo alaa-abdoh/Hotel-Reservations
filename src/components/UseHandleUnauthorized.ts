@@ -1,4 +1,3 @@
-// useHandleUnauthorized.js
 import { useNavigate } from "react-router-dom";
 
 function useHandleUnauthorized() {

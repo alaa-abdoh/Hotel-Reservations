@@ -4,13 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 import Loader from "../../../components/Loader";
 import { cityCriteria } from "../../../Types/app";
 import City from "./City";
-import useHandleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/UseHandleUnauthorized";
 
 
 function Cities(){
     const [cities, setCities]= useState([])
     const [isLoading, setIsLoading]= useState(false)
-    const navigate= useNavigate();
+    const handleUnauthorized = useHandleUnauthorized();
 
     useEffect(() => {
         async function getCities() {
@@ -24,7 +24,7 @@ function Cities(){
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    useHandleUnauthorized();
+                    handleUnauthorized();
                 }
             }
         }

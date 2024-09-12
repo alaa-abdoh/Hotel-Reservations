@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import Deal from "./Deal";
 import { useNavigate } from "react-router-dom";
 import { hotelDeal } from "../../../Types/app";
-import useHandleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/UseHandleUnauthorized";
 
 function FeaturesDeals(){
     const [deals, setDeals] = useState([]);
-    const navigate= useNavigate();
+    const handleUnauthorized = useHandleUnauthorized();
 
     useEffect(() => {
         async function fetchDeals() {
@@ -18,7 +18,7 @@ function FeaturesDeals(){
             setDeals(response.data);
           } catch (error: any) {
             if(error.response.status === 401){
-              useHandleUnauthorized()
+              handleUnauthorized()
           }
           }
         }

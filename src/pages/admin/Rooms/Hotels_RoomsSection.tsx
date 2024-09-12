@@ -4,12 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import Hotel_RoomSection from './Hotel_RoomSection';
 import { hotelCriteria_admin } from '../../../Types/app';
 import Loader from '../../../components/Loader';
-import useHandleUnauthorized from '../../../components/HandleUnauthorized';
+import useHandleUnauthorized from '../../../components/UseHandleUnauthorized';
 
 function Hotels_RoomsSection(){
     const [hotels, setHotels] = useState<hotelCriteria_admin[]>([]);
     const [isLoading, setIsLoading] = useState(false);
-    const navigate = useNavigate();
+    const handleUnauthorized = useHandleUnauthorized();
 
     useEffect(() => {
         async function getHotels() {
@@ -23,7 +23,7 @@ function Hotels_RoomsSection(){
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    useHandleUnauthorized()
+                    handleUnauthorized()
                 }
             }
         }

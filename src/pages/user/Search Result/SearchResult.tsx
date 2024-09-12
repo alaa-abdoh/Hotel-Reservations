@@ -4,14 +4,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 import SearchSuccess from "./SearchSuccess";
 import { searchedHotel } from "../../../Types/app";
 import Loader from "../../../components/Loader";
-import useHandleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/UseHandleUnauthorized";
 
 
 function SearchResult(){
     const [hotels, setHotels]= useState<searchedHotel[]>([]);
     const [originalHotels, setOriginalHotels] = useState<searchedHotel[]>([]);// To use In filter
     const location = useLocation();
-    const navigate= useNavigate();
+    const handleUnauthorized = useHandleUnauthorized();
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
     useEffect(() => {
@@ -29,7 +29,7 @@ function SearchResult(){
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    useHandleUnauthorized()
+                    handleUnauthorized()
                 }
             }
         }

@@ -6,7 +6,7 @@ import Reviews from "./Reviews";
 import HotelImages from "./HotelImages";
 import { hotelInfo } from "../../../Types/app";
 import Loader from "../../../components/Loader";
-import useHandleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/UseHandleUnauthorized";
 // Lazy load for the map (HotelLocation component)
 const HotelLocation = React.lazy(() => import('./HotelLocation'));
  // Lazy load for AvailableRooms component
@@ -16,7 +16,7 @@ function HotelInfo(){
     const {hotelID} =useParams();
     const [hotelInfo, setHotelInfo]= useState<hotelInfo>()
     const [isLoading, setIsLoading]= useState<boolean>(false)
-    const navigate= useNavigate();
+    const handleUnauthorized = useHandleUnauthorized();
 
     useEffect(() => {
         async function hotelInformation() {
@@ -30,7 +30,7 @@ function HotelInfo(){
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    useHandleUnauthorized();
+                   handleUnauthorized();
                 }
             }
         }

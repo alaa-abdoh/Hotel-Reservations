@@ -4,11 +4,11 @@ import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import VisitedHotel from "./VisitedHotel";
 import { MyJwtPayload, visitedHotel } from "../../../Types/app";
-import useHandleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/UseHandleUnauthorized";
 
 function RecentlyVisited() {
     const [Visted, setVisited] = useState([])
-    const navigate= useNavigate();
+    const handleUnauthorized = useHandleUnauthorized();
 
     useEffect(() => {
         async function visitedHotels() {
@@ -24,7 +24,7 @@ function RecentlyVisited() {
                 }
             } catch (error:any) {
                 if(error.response.status === 401){
-                    useHandleUnauthorized();
+                    handleUnauthorized();
                 }
             }
         }

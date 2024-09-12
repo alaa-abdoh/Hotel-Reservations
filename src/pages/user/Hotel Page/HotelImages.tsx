@@ -3,13 +3,14 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { hotelImagesProps, hotelImg } from "../../../Types/app";
 import Loader from "../../../components/Loader";
-import useHandleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/UseHandleUnauthorized";
 
 
 function HotelImages(props: hotelImagesProps){
     const [images, setImages]= useState([]);
     const [isLoading, setIsLoading]= useState(false);
-    const navigate= useNavigate();
+    const handleUnauthorized = useHandleUnauthorized();
+
         useEffect(() => {
         async function imagesFetch() {
             try {
@@ -22,7 +23,7 @@ function HotelImages(props: hotelImagesProps){
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    useHandleUnauthorized()
+                    handleUnauthorized()
                 }
             }
         }

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { hotelProps } from "../../../Types/app";
 import { showPopup } from "../../../components/ShowPopup";
-import useHandleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/UseHandleUnauthorized";
 
 function Hotel(props:hotelProps){
     const [isEditing, setIsEditing]= useState(false);
@@ -13,7 +13,7 @@ function Hotel(props:hotelProps){
     const [description, setDescription]= useState(props.hotel.description);
     const [rating, setRating]= useState<number>(props.hotel.starRating)
     const [roomType, setRoomType]= useState(props.hotel.hotelType)
-    const navigate= useNavigate();
+    const handleUnauthorized = useHandleUnauthorized();
 
     async function handleSave(){
         try {
@@ -32,7 +32,7 @@ function Hotel(props:hotelProps){
             setIsEditing(false);
         } catch (error: any) {
             if (error.response && error.response.status === 401) {
-                useHandleUnauthorized();                
+                handleUnauthorized();                
             } else{
                 showPopup("Failed", "There Is error in the API", "error", false)
             }
@@ -50,7 +50,7 @@ function Hotel(props:hotelProps){
                     );
                 } catch (error: any) {
                     if (error.response && error.response.status === 401) {
-                        useHandleUnauthorized();
+                        handleUnauthorized();
                     } else{
                         showPopup("Failed", "No API from BackEnd to delete Hotel", "error", false)
                     }

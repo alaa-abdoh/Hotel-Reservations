@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { cityProps } from "../../../Types/app";
 import { showPopup } from "../../../components/ShowPopup";
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
-import useHandleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/UseHandleUnauthorized";
 
 
 function City(props: cityProps){
     const [isEditing, setIsEditing]= useState(false);
     const [name, setName]= useState(props.city.name);
     const [description, setDescription]= useState(props.city.description)
-    const navigate= useNavigate();
+    const handleUnauthorized = useHandleUnauthorized();
 
     async function handleSave(){
         try {
@@ -29,7 +29,7 @@ function City(props: cityProps){
             setIsEditing(false);
         } catch (error: any) {
             if (error.response && error.response.status === 401) {
-                useHandleUnauthorized();
+                handleUnauthorized();
             } else{
                 showPopup("Failed", "There Is error in the API", "error", false)
             }
@@ -48,10 +48,7 @@ function City(props: cityProps){
                     setIsEditing(false);
                 } catch (error: any) {
                     if (error.response && error.response.status === 401) {
-                        navigate("/");
-                        localStorage.removeItem("authToken");
-                        localStorage.removeItem("userType");
-                        window.history.replaceState(null, '', '/');
+                        handleUnauthorized()
                     } else{
                         showPopup("Failed", "There Is an error in the API", "error", false)
                     }

@@ -3,13 +3,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { showPopup } from "../../../components/ShowPopup";
 import Loader from "../../../components/Loader";
-import useHandleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/UseHandleUnauthorized";
 
 function AddCity(){
     const[name, setName]= useState("");
     const[description, setDescription]= useState("");
     const [isLoading, setIsLoading]= useState(false)
     const navigate= useNavigate();
+    const handleUnauthorized = useHandleUnauthorized();
 
     async function handleSubmit(e:any){
         e.preventDefault();
@@ -29,7 +30,7 @@ function AddCity(){
             })
         } catch (error: any) {
             if (error.response.status === 401) {
-                useHandleUnauthorized();
+                handleUnauthorized();
             }
         }
     }

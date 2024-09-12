@@ -5,7 +5,7 @@ import { showPopup } from "../../../components/ShowPopup";
 import { cityCriteria } from "../../../Types/app";
 import Loader from "../../../components/Loader";
 import SelectFieldAddHotel from "./SelectFieldAddHotel";
-import useHandleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/UseHandleUnauthorized";
 import { Form, Field, Formik } from "formik";
 import validationSchema from "./AddHotelValidationSchema";
 import styles from "./AddHotel.module.css";
@@ -14,7 +14,7 @@ function AddHotel() {
     const [isLoading, setIsLoading] = useState(false)
     const [cities, setCities] = useState([])
     const navigate = useNavigate();
-
+    const handleUnauthorized = useHandleUnauthorized();
 
     useEffect(() => {
         async function getCities() {
@@ -28,7 +28,7 @@ function AddHotel() {
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    useHandleUnauthorized()
+                    handleUnauthorized()
                 }
             }
         }
@@ -53,7 +53,7 @@ function AddHotel() {
             })
         } catch (error: any) {
             if (error.response.status === 401) {
-                useHandleUnauthorized()
+                handleUnauthorized()
             }
             else {
                 showPopup("Failed", "No API yet to Add new Hotel", "error", false);

@@ -5,10 +5,11 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { hotelRoomProps } from '../../../Types/app';
 import { showPopup } from '../../../components/ShowPopup';
-import useHandleUnauthorized from '../../../components/HandleUnauthorized';
+import useHandleUnauthorized from '../../../components/UseHandleUnauthorized';
 
 function Room(props:hotelRoomProps) {
-    const navigate= useNavigate();
+    const handleUnauthorized = useHandleUnauthorized();
+
 
     function handleEdit(){
         showPopup("Error", "Sorry there is no API for Edit hotel yet", 'error',false)
@@ -25,7 +26,7 @@ function Room(props:hotelRoomProps) {
                     showPopup("Success","Deleted Successfully","success",false)
                 } catch (error: any) {
                     if (error.response && error.response.status === 401) {
-                        useHandleUnauthorized();
+                        handleUnauthorized();
                     }
                 }
             }else{

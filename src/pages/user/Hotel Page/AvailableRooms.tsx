@@ -4,12 +4,12 @@ import axios from "axios";
 import HotelRoom from "./HotelRoom";
 import { availableRoomsProps, roomCriteria } from "../../../Types/app";
 import Loader from "../../../components/Loader";
-import useHandleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/UseHandleUnauthorized";
 
 function AvailableRooms(props: availableRoomsProps){
     const [rooms, setRooms]= useState([])
     const [isLoading, setIsLoading]= useState<boolean>(false)
-    const navigate= useNavigate();
+    const handleUnauthorized = useHandleUnauthorized();
 
     function extractDate(): string {
         const date: Date = new Date();
@@ -38,7 +38,7 @@ function AvailableRooms(props: availableRoomsProps){
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    useHandleUnauthorized();
+                    handleUnauthorized();
                 }
             }
         }

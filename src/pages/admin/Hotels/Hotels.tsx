@@ -4,12 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import Hotel from "./Hotel";
 import { hotelCriteria_admin } from "../../../Types/app";
 import Loader from "../../../components/Loader";
-import useHandleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/UseHandleUnauthorized";
 
 function Hotels(){
     const [hotels, setHotels]= useState([])
     const [isLoading, setIsLoading]= useState(false)
-    const navigate= useNavigate();
+    const handleUnauthorized = useHandleUnauthorized();
 
     useEffect(() => {
         async function getHotels() {
@@ -23,7 +23,7 @@ function Hotels(){
                 setIsLoading(false);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    useHandleUnauthorized();
+                    handleUnauthorized();
                 }
             }
         }

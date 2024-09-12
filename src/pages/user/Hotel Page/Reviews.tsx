@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { review, reviewsProps } from "../../../Types/app";
-import useHandleUnauthorized from "../../../components/HandleUnauthorized";
+import useHandleUnauthorized from "../../../components/UseHandleUnauthorized";
 
 function Reviews(props: reviewsProps){
     const [reviews, setReviews]= useState<review[]>([]);
-    const navigate= useNavigate();
+    const handleUnauthorized = useHandleUnauthorized();
+
     useEffect(() => {
         async function hotelReviews() {
             try {
@@ -16,7 +17,7 @@ function Reviews(props: reviewsProps){
                 setReviews(response.data);
             } catch (error: any) {
                 if (error.response.status === 401) {
-                    useHandleUnauthorized()
+                    handleUnauthorized()
                 }
             }
         }
